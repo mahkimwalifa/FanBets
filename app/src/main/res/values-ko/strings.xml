@@ -133,4 +133,7 @@
     <string name="phone_verification_title">전화번호 인증</string>
     <string name="send_code">코드 전송</string>
     <string name="waiting_for_code">코드 대기 중</string>
+    <string name="network_error_title">연결 오류</string>
+    <string name="network_error_message">서버에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.</string>
+    <string name="try_again">다시 시도</string>
 </resources>

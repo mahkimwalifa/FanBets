@@ -147,6 +147,9 @@
     <string name="confirm_button">Confirm</string>
     <string name="back_button">Back</string>
     <string name="terms_agreement_text">By clicking "Registration", you confirm\nthat you are 18 years old, have read and accept</string>
+    <string name="network_error_title">Connection Error</string>
+    <string name="network_error_message">Unable to connect to the server. Please check your internet connection and try again.</string>
+    <string name="try_again">Try Again</string>
     <string name="terms_link">TERMS OF USE AND PRIVACY POLICY</string>
     <string name="select_country">Select your country</string>
     <string name="search_country">Search country</string>

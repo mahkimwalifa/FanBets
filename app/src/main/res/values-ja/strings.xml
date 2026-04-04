@@ -133,4 +133,7 @@
     <string name="phone_verification_title">電話番号認証</string>
     <string name="send_code">コードを送信</string>
     <string name="waiting_for_code">コードを待っています</string>
+    <string name="network_error_title">接続エラー</string>
+    <string name="network_error_message">サーバーに接続できませんでした。インターネット接続を確認して、もう一度お試しください。</string>
+    <string name="try_again">再試行</string>
 </resources>

@@ -133,4 +133,7 @@
     <string name="phone_verification_title">手机号验证</string>
     <string name="send_code">发送验证码</string>
     <string name="waiting_for_code">等待验证码</string>
+    <string name="network_error_title">连接错误</string>
+    <string name="network_error_message">无法连接到服务器。请检查您的网络连接并重试。</string>
+    <string name="try_again">重试</string>
 </resources>

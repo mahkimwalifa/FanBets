@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Підтвердження телефону</string>
     <string name="send_code">Надіслати код</string>
     <string name="waiting_for_code">Очікуємо код</string>
+    <string name="network_error_title">Помилка з\'єднання</string>
+    <string name="network_error_message">Не вдалося підключитися до сервера. Перевірте підключення до інтернету та спробуйте ще раз.</string>
+    <string name="try_again">Спробувати ще раз</string>
 </resources>

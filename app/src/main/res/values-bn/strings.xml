@@ -133,4 +133,7 @@
     <string name="phone_verification_title">ফোন যাচাইকরণ</string>
     <string name="send_code">কোড পাঠান</string>
     <string name="waiting_for_code">কোডের জন্য অপেক্ষা করা হচ্ছে</string>
+    <string name="network_error_title">সংযোগ ত্রুটি</string>
+    <string name="network_error_message">সার্ভারের সাথে সংযোগ করা যায়নি। আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন এবং আবার চেষ্টা করুন।</string>
+    <string name="try_again">আবার চেষ্টা করুন</string>
 </resources>

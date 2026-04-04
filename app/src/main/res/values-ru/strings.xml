@@ -148,6 +148,9 @@
     <string name="confirm_button">Подтвердить</string>
     <string name="back_button">Назад</string>
     <string name="terms_agreement_text">Нажимая на кнопку "Регистрация", Вы подтверждаете,\nчто Вам есть 18 лет, прочитали и принимаете</string>
+    <string name="network_error_title">Ошибка соединения</string>
+    <string name="network_error_message">Не удалось подключиться к серверу. Проверьте подключение к интернету и повторите попытку.</string>
+    <string name="try_again">Повторить</string>
     <string name="terms_link">УСЛОВИЯ ПОЛЬЗОВАНИЯ И ПОЛИТИКУ КОНФИДЕНЦИАЛЬНОСТИ</string>
     <string name="select_country">Выберите страну</string>
     <string name="search_country">Поиск страны</string>

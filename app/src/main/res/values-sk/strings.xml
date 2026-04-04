@@ -147,4 +147,7 @@
     <string name="code_hint">Kód</string>
     <string name="waiting_for_code">Čakanie na kód…</string>
     <string name="search_country">Hľadať krajinu</string>
+    <string name="network_error_title">Chyba pripojenia</string>
+    <string name="network_error_message">Nepodarilo sa pripojiť k serveru. Skontrolujte pripojenie na internet a skúste to znova.</string>
+    <string name="try_again">Skúsiť znova</string>
 </resources>

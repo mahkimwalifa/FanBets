@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Telefoni kinnitamine</string>
     <string name="send_code">Saada kood</string>
     <string name="waiting_for_code">Koodi ootel</string>
+    <string name="network_error_title">Ühenduse viga</string>
+    <string name="network_error_message">Serveriga ei õnnestunud ühendust luua. Kontrollige internetiühendust ja proovige uuesti.</string>
+    <string name="try_again">Proovi uuesti</string>
 </resources>

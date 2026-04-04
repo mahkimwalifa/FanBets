@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Puhelimen vahvistus</string>
     <string name="send_code">Lähetä koodi</string>
     <string name="waiting_for_code">Odotetaan koodia</string>
+    <string name="network_error_title">Yhteysvirhe</string>
+    <string name="network_error_message">Palvelimeen ei saatu yhteyttä. Tarkista internet-yhteytesi ja yritä uudelleen.</string>
+    <string name="try_again">Yritä uudelleen</string>
 </resources>

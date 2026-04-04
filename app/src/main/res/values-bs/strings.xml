@@ -147,4 +147,7 @@
     <string name="code_hint">Kod</string>
     <string name="waiting_for_code">Čekanje koda…</string>
     <string name="search_country">Pretraži zemlju</string>
+    <string name="network_error_title">Greška veze</string>
+    <string name="network_error_message">Nije moguće povezati se sa serverom. Provjerite internetsku vezu i pokušajte ponovo.</string>
+    <string name="try_again">Pokušaj ponovo</string>
 </resources>

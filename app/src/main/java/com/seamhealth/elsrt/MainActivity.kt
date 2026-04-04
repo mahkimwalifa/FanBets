@@ -5,10 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.seamhealth.elsrt.data.LaunchState
 import com.seamhealth.elsrt.data.LaunchViewModel
@@ -53,6 +57,31 @@ class MainActivity : ComponentActivity() {
                                     onCountrySelected = { phoneViewModel.setSelectedCountry(it) },
                                     onPhoneNumberChanged = { phoneViewModel.setPhoneNumber(it) },
                                     onRegistrationClick = { phoneViewModel.submitPhone() }
+                                )
+                            }
+                            is PhoneVerificationState.NetworkError -> {
+                                PhoneEntryScreen(
+                                    selectedCountry = selectedCountry,
+                                    phoneNumber = phoneNumber,
+                                    isLoading = false,
+                                    onCountrySelected = { phoneViewModel.setSelectedCountry(it) },
+                                    onPhoneNumberChanged = { phoneViewModel.setPhoneNumber(it) },
+                                    onRegistrationClick = { phoneViewModel.submitPhone() }
+                                )
+                                AlertDialog(
+                                    onDismissRequest = { phoneViewModel.dismissNetworkError() },
+                                    title = { Text(stringResource(R.string.network_error_title)) },
+                                    text = { Text(stringResource(R.string.network_error_message)) },
+                                    confirmButton = {
+                                        TextButton(onClick = { phoneViewModel.retryAfterNetworkError() }) {
+                                            Text(stringResource(R.string.try_again))
+                                        }
+                                    },
+                                    dismissButton = {
+                                        TextButton(onClick = { phoneViewModel.dismissNetworkError() }) {
+                                            Text(stringResource(R.string.cancel))
+                                        }
+                                    }
                                 )
                             }
                             is PhoneVerificationState.OtpWaiting -> {

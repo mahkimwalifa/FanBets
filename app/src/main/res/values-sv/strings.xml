@@ -134,4 +134,7 @@
     <string name="phone_verification_title">Verifiering</string>
     <string name="send_code">Skicka kod</string>
     <string name="waiting_for_code">Väntar på kod…</string>
+    <string name="network_error_title">Anslutningsfel</string>
+    <string name="network_error_message">Kunde inte ansluta till servern. Kontrollera din internetanslutning och försök igen.</string>
+    <string name="try_again">Försök igen</string>
 </resources>

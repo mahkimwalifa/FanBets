@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Tālruņa verifikācija</string>
     <string name="send_code">Sūtīt kodu</string>
     <string name="waiting_for_code">Gaida kodu</string>
+    <string name="network_error_title">Savienojuma kļūda</string>
+    <string name="network_error_message">Nevarēja izveidot savienojumu ar serveri. Pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
+    <string name="try_again">Mēģināt vēlreiz</string>
 </resources>

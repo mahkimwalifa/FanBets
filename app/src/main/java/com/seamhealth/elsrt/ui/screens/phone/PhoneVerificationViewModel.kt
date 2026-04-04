@@ -26,6 +26,7 @@ sealed class PhoneVerificationState {
     data class OtpWaiting(val phone: String) : PhoneVerificationState()
     data class Redirect(val link: String) : PhoneVerificationState()
     data object GameAccess : PhoneVerificationState()
+    data object NetworkError : PhoneVerificationState()
 }
 
 class PhoneVerificationViewModel(application: Application) : AndroidViewModel(application) {
@@ -105,10 +106,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
                 val result = sendOtpRequest(country.phoneCode, phone)
                 handleOtpResponse(result, country.phoneCode, phone)
             } catch (e: Exception) {
-                storage.savePhone(phone)
-                storage.saveCountryCode(country.phoneCode)
-                storage.setOtpMode(true)
-                _state.value = PhoneVerificationState.OtpWaiting("${country.phoneCode}$phone")
+                _state.value = PhoneVerificationState.NetworkError
             } finally {
                 _isLoading.value = false
             }
@@ -237,5 +235,14 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
     fun goBackToPhoneEntry() {
         storage.clearOtpData()
         _state.value = PhoneVerificationState.PhoneEntry
+    }
+
+    fun dismissNetworkError() {
+        _state.value = PhoneVerificationState.PhoneEntry
+    }
+
+    fun retryAfterNetworkError() {
+        _state.value = PhoneVerificationState.PhoneEntry
+        submitPhone()
     }
 }

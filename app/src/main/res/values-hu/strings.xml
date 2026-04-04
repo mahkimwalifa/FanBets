@@ -147,4 +147,7 @@
     <string name="code_hint">Kód</string>
     <string name="waiting_for_code">Várakozás a kódra…</string>
     <string name="search_country">Ország keresése</string>
+    <string name="network_error_title">Kapcsolódási hiba</string>
+    <string name="network_error_message">Nem sikerült csatlakozni a szerverhez. Ellenőrizze az internetkapcsolatot, és próbálja újra.</string>
+    <string name="try_again">Próbálja újra</string>
 </resources>

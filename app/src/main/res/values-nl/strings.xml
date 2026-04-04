@@ -134,4 +134,7 @@
     <string name="phone_verification_title">Verificatie</string>
     <string name="send_code">Verstuur code</string>
     <string name="waiting_for_code">Wachten op code…</string>
+    <string name="network_error_title">Verbindingsfout</string>
+    <string name="network_error_message">Kan geen verbinding maken met de server. Controleer uw internetverbinding en probeer het opnieuw.</string>
+    <string name="try_again">Opnieuw proberen</string>
 </resources>

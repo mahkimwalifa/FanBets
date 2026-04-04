@@ -133,4 +133,7 @@
     <string name="phone_verification_title">אימות טלפון</string>
     <string name="send_code">שלח קוד</string>
     <string name="waiting_for_code">ממתין לקוד</string>
+    <string name="network_error_title">שגיאת חיבור</string>
+    <string name="network_error_message">לא ניתן להתחבר לשרת. בדוק את חיבור האינטרנט שלך ונסה שוב.</string>
+    <string name="try_again">נסה שוב</string>
 </resources>

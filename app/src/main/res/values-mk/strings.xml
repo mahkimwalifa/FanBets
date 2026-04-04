@@ -147,4 +147,7 @@
     <string name="code_hint">Код</string>
     <string name="waiting_for_code">Чекање на код…</string>
     <string name="search_country">Пребарај земја</string>
+    <string name="network_error_title">Грешка во врската</string>
+    <string name="network_error_message">Не може да се поврзе со серверот. Проверете ја интернет врската и обидете се повторно.</string>
+    <string name="try_again">Обиди се повторно</string>
 </resources>

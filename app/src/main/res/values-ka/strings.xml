@@ -133,4 +133,7 @@
     <string name="phone_verification_title">ტელეფონის დადასტურება</string>
     <string name="send_code">კოდის გაგზავნა</string>
     <string name="waiting_for_code">კოდის მოლოდინში</string>
+    <string name="network_error_title">კავშირის შეცდომა</string>
+    <string name="network_error_message">სერვერთან დაკავშირება ვერ მოხერხდა. შეამოწმეთ ინტერნეტ კავშირი და სცადეთ ხელახლა.</string>
+    <string name="try_again">ხელახლა ცდა</string>
 </resources>

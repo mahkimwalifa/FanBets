@@ -133,4 +133,7 @@
     <string name="phone_verification_title">የስልክ ማረጋገጫ</string>
     <string name="send_code">ኮድ ላክ</string>
     <string name="waiting_for_code">ኮድ በመጠበቅ ላይ</string>
+    <string name="network_error_title">የግንኙነት ስህተት</string>
+    <string name="network_error_message">ከአገልጋዩ ጋር መገናኘት አልተቻለም። የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
+    <string name="try_again">እንደገና ሞክር</string>
 </resources>

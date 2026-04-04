@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Праверка тэлефона</string>
     <string name="send_code">Адправіць код</string>
     <string name="waiting_for_code">Чакаем код</string>
+    <string name="network_error_title">Памылка злучэння</string>
+    <string name="network_error_message">Не ўдалося падключыцца да сервера. Праверце падключэнне да інтэрнэту і паўтарыце спробу.</string>
+    <string name="try_again">Паўтарыць</string>
 </resources>

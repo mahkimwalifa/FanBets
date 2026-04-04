@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Pag-verify ng Telepono</string>
     <string name="send_code">Ipadala ang code</string>
     <string name="waiting_for_code">Naghihintay ng code</string>
+    <string name="network_error_title">Error sa Koneksyon</string>
+    <string name="network_error_message">Hindi makakonekta sa server. Suriin ang iyong koneksyon sa internet at subukang muli.</string>
+    <string name="try_again">Subukan Muli</string>
 </resources>

@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Telefon Doğrulama</string>
     <string name="send_code">Kod gönder</string>
     <string name="waiting_for_code">Kod bekleniyor</string>
+    <string name="network_error_title">Bağlantı Hatası</string>
+    <string name="network_error_message">Sunucuya bağlanılamadı. İnternet bağlantınızı kontrol edin ve tekrar deneyin.</string>
+    <string name="try_again">Tekrar Dene</string>
 </resources>

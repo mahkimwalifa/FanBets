@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Uthibitisho wa Simu</string>
     <string name="send_code">Tuma msimbo</string>
     <string name="waiting_for_code">Kusubiri msimbo</string>
+    <string name="network_error_title">Hitilafu ya Muunganisho</string>
+    <string name="network_error_message">Imeshindwa kuunganisha na seva. Tafadhali angalia muunganisho wako wa intaneti na ujaribu tena.</string>
+    <string name="try_again">Jaribu Tena</string>
 </resources>

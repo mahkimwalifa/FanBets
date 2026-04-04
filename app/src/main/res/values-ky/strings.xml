@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Телефонду ырастоо</string>
     <string name="send_code">Код жөнөтүү</string>
     <string name="waiting_for_code">Код күтүлүүдө</string>
+    <string name="network_error_title">Байланыш катасы</string>
+    <string name="network_error_message">Серверге туташуу мүмкүн болгон жок. Интернет байланышыңызды текшерип, кайра аракет кылыңыз.</string>
+    <string name="try_again">Кайра аракет</string>
 </resources>

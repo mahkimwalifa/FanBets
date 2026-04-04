@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Тасдиқи телефон</string>
     <string name="send_code">Фиристодани рамз</string>
     <string name="waiting_for_code">Дар интизори рамз</string>
+    <string name="network_error_title">Хатои пайвастшавӣ</string>
+    <string name="network_error_message">Ба сервер пайваст шудан имконнопазир аст. Пайвастшавии интернетиатонро тафтиш кунед ва дубора кӯшиш кунед.</string>
+    <string name="try_again">Аз нав кӯшиш кунед</string>
 </resources>

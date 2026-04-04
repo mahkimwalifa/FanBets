@@ -134,4 +134,7 @@
     <string name="phone_verification_title">Verificación</string>
     <string name="send_code">Enviar código</string>
     <string name="waiting_for_code">Esperando código…</string>
+    <string name="network_error_title">Error de conexión</string>
+    <string name="network_error_message">No se pudo conectar al servidor. Verifique su conexión a Internet e intente nuevamente.</string>
+    <string name="try_again">Reintentar</string>
 </resources>

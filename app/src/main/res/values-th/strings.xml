@@ -133,4 +133,7 @@
     <string name="phone_verification_title">ยืนยันหมายเลขโทรศัพท์</string>
     <string name="send_code">ส่งรหัส</string>
     <string name="waiting_for_code">กำลังรอรหัส</string>
+    <string name="network_error_title">ข้อผิดพลาดในการเชื่อมต่อ</string>
+    <string name="network_error_message">ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตและลองอีกครั้ง</string>
+    <string name="try_again">ลองอีกครั้ง</string>
 </resources>

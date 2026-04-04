@@ -133,4 +133,7 @@
     <string name="phone_verification_title">फोन प्रमाणीकरण</string>
     <string name="send_code">कोड पठाउनुहोस्</string>
     <string name="waiting_for_code">कोडको प्रतीक्षा गर्दै</string>
+    <string name="network_error_title">जडान त्रुटि</string>
+    <string name="network_error_message">सर्भरमा जडान गर्न सकिएन। कृपया आफ्नो इन्टरनेट जडान जाँच गर्नुहोस् र पुन: प्रयास गर्नुहोस्।</string>
+    <string name="try_again">पुन: प्रयास गर्नुहोस्</string>
 </resources>

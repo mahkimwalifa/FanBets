@@ -147,4 +147,7 @@
     <string name="code_hint">Koda</string>
     <string name="waiting_for_code">Čakanje na kodo…</string>
     <string name="search_country">Išči državo</string>
+    <string name="network_error_title">Napaka povezave</string>
+    <string name="network_error_message">Povezave s strežnikom ni bilo mogoče vzpostaviti. Preverite internetno povezavo in poskusite znova.</string>
+    <string name="try_again">Poskusi znova</string>
 </resources>

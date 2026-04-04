@@ -147,4 +147,7 @@
     <string name="code_hint">Kodi</string>
     <string name="waiting_for_code">Duke pritur kodin…</string>
     <string name="search_country">Kërko vendin</string>
+    <string name="network_error_title">Gabim lidhjeje</string>
+    <string name="network_error_message">Nuk mund të lidhet me serverin. Kontrolloni lidhjen tuaj me internetin dhe provoni përsëri.</string>
+    <string name="try_again">Provo përsëri</string>
 </resources>

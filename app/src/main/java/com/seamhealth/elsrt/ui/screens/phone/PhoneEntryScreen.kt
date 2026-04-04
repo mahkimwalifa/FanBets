@@ -134,10 +134,10 @@ fun PhoneEntryScreen(
                     AndroidView(
                         factory = { context ->
                             ImageView(context).apply {
-                                setImageResource(R.mipmap.ic_launcher)
+                                setImageResource(R.mipmap.ic_launcher_foreground)
                             }
                         },
-                        modifier = Modifier.size(96.dp)
+                        modifier = Modifier.size(129.dp)
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(

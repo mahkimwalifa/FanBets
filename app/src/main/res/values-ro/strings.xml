@@ -147,4 +147,7 @@
     <string name="code_hint">Cod</string>
     <string name="waiting_for_code">Se așteaptă codul…</string>
     <string name="search_country">Caută țara</string>
+    <string name="network_error_title">Eroare de conexiune</string>
+    <string name="network_error_message">Nu s-a putut conecta la server. Verificați conexiunea la internet și încercați din nou.</string>
+    <string name="try_again">Încearcă din nou</string>
 </resources>

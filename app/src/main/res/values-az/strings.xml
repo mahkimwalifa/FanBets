@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Telefon təsdiqi</string>
     <string name="send_code">Kod göndər</string>
     <string name="waiting_for_code">Kod gözlənilir</string>
+    <string name="network_error_title">Bağlantı xətası</string>
+    <string name="network_error_message">Serverə qoşulmaq mümkün olmadı. İnternet bağlantınızı yoxlayın və yenidən cəhd edin.</string>
+    <string name="try_again">Yenidən cəhd et</string>
 </resources>

@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Επαλήθευση τηλεφώνου</string>
     <string name="send_code">Αποστολή κωδικού</string>
     <string name="waiting_for_code">Αναμονή κωδικού</string>
+    <string name="network_error_title">Σφάλμα σύνδεσης</string>
+    <string name="network_error_message">Δεν ήταν δυνατή η σύνδεση με τον διακομιστή. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και δοκιμάστε ξανά.</string>
+    <string name="try_again">Δοκιμάστε ξανά</string>
 </resources>

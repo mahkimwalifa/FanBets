@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Telefono patvirtinimas</string>
     <string name="send_code">Siųsti kodą</string>
     <string name="waiting_for_code">Laukiama kodo</string>
+    <string name="network_error_title">Ryšio klaida</string>
+    <string name="network_error_message">Nepavyko prisijungti prie serverio. Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
+    <string name="try_again">Bandyti dar kartą</string>
 </resources>

@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Телефонды растау</string>
     <string name="send_code">Код жіберу</string>
     <string name="waiting_for_code">Код күтілуде</string>
+    <string name="network_error_title">Байланыс қатесі</string>
+    <string name="network_error_message">Серверге қосылу мүмкін болмады. Интернет қосылымыңызды тексеріп, қайталап көріңіз.</string>
+    <string name="try_again">Қайталау</string>
 </resources>

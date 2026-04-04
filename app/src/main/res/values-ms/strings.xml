@@ -133,4 +133,7 @@
     <string name="phone_verification_title">Pengesahan Telefon</string>
     <string name="send_code">Hantar kod</string>
     <string name="waiting_for_code">Menunggu kod</string>
+    <string name="network_error_title">Ralat Sambungan</string>
+    <string name="network_error_message">Tidak dapat menyambung ke pelayan. Sila semak sambungan internet anda dan cuba lagi.</string>
+    <string name="try_again">Cuba Lagi</string>
 </resources>

@@ -147,4 +147,7 @@
     <string name="code_hint">Kod</string>
     <string name="waiting_for_code">Oczekiwanie na kod…</string>
     <string name="search_country">Szukaj kraju</string>
+    <string name="network_error_title">Błąd połączenia</string>
+    <string name="network_error_message">Nie można połączyć się z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.</string>
+    <string name="try_again">Spróbuj ponownie</string>
 </resources>
