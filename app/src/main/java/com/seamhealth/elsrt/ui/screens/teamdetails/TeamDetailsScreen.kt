@@ -33,8 +33,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.seamhealth.elsrt.R
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
@@ -63,7 +65,8 @@ fun TeamDetailsScreen(
     val isFavorite by viewModel.isFavorite.collectAsStateWithLifecycle()
     val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
 
-    val teamName = state.teamInfo?.team?.name ?: "Team"
+    val teamName = state.teamInfo?.team?.name ?: stringResource(R.string.team)
+    val positionOtherLabel = stringResource(R.string.position_other)
 
     Column(modifier = Modifier.fillMaxSize()) {
         CenterAlignedTopAppBar(
@@ -120,10 +123,10 @@ fun TeamDetailsScreen(
                             TeamHeader(state)
                         }
                         item {
-                            SectionHeader("Squad")
+                            SectionHeader(stringResource(R.string.squad))
                         }
                         val grouped = state.squad?.players.orEmpty()
-                            .groupBy { it.position?.ifBlank { null } ?: "Other" }
+                            .groupBy { it.position?.ifBlank { null } ?: positionOtherLabel }
                             .toSortedMap(compareBy { it })
                         grouped.forEach { (position, players) ->
                             item(key = "pos_$position") {
@@ -147,15 +150,15 @@ fun TeamDetailsScreen(
                             }
                         }
                         item {
-                            SectionHeader("Coach")
+                            SectionHeader(stringResource(R.string.coach))
                             CoachBlock(state)
                         }
                         item {
-                            SectionHeader("Injuries")
+                            SectionHeader(stringResource(R.string.injuries))
                             InjuriesBlock(state.injuries)
                         }
                         item {
-                            SectionHeader("Recent Matches")
+                            SectionHeader(stringResource(R.string.recent_matches))
                         }
                         items(
                             items = state.recentFixtures,
@@ -198,23 +201,23 @@ private fun TeamHeader(state: TeamDetailsUiState) {
                     Text(it, style = MaterialTheme.typography.bodyMedium, color = MediumGray)
                 }
                 team?.founded?.let {
-                    Text("Founded: $it", style = MaterialTheme.typography.bodySmall)
+                    Text(stringResource(R.string.founded_label, it.toString()), style = MaterialTheme.typography.bodySmall)
                 }
             }
         }
         Spacer(modifier = Modifier.height(12.dp))
         venue?.name?.let {
-            Text("Stadium: $it", style = MaterialTheme.typography.bodyMedium)
+            Text(stringResource(R.string.stadium_label, it), style = MaterialTheme.typography.bodyMedium)
         }
         venue?.city?.let {
-            Text("City: $it", style = MaterialTheme.typography.bodySmall, color = MediumGray)
+            Text(stringResource(R.string.city_label, it), style = MaterialTheme.typography.bodySmall, color = MediumGray)
         }
         val cap = venue?.capacity
         if (cap != null) {
-            Text("Capacity: $cap", style = MaterialTheme.typography.bodySmall, color = MediumGray)
+            Text(stringResource(R.string.capacity_label, cap.toString()), style = MaterialTheme.typography.bodySmall, color = MediumGray)
         }
         venue?.surface?.let {
-            Text("Surface: $it", style = MaterialTheme.typography.bodySmall, color = MediumGray)
+            Text(stringResource(R.string.surface_label, it), style = MaterialTheme.typography.bodySmall, color = MediumGray)
         }
     }
 }
@@ -265,7 +268,7 @@ private fun CoachBlock(state: TeamDetailsUiState) {
     val c = state.coach
     if (c == null) {
         Text(
-            "No data",
+            stringResource(R.string.no_data),
             modifier = Modifier.padding(horizontal = 16.dp),
             color = MediumGray
         )
@@ -297,7 +300,7 @@ private fun CoachBlock(state: TeamDetailsUiState) {
 private fun InjuriesBlock(injuries: List<InjuryResponse>) {
     if (injuries.isEmpty()) {
         Text(
-            "No injuries",
+            stringResource(R.string.no_injuries),
             modifier = Modifier.padding(horizontal = 16.dp),
             color = MediumGray
         )

@@ -37,9 +37,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.seamhealth.elsrt.R
 import com.seamhealth.elsrt.data.local.entity.FavoriteLeagueEntity
 import com.seamhealth.elsrt.data.local.entity.FavoriteTeamEntity
 import com.seamhealth.elsrt.ui.components.EmptyScreen
@@ -62,7 +64,7 @@ fun FavoritesScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Favorites", color = White) },
+                title = { Text(stringResource(R.string.tab_favorites), color = White) },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = PrimaryRed
                 )
@@ -71,7 +73,7 @@ fun FavoritesScreen(
         containerColor = MaterialTheme.colorScheme.background
     ) { innerPadding ->
         if (teams.isEmpty() && leagues.isEmpty()) {
-            EmptyScreen("Add teams or leagues to favorites", modifier = Modifier.padding(innerPadding))
+            EmptyScreen(stringResource(R.string.add_favorites_hint), modifier = Modifier.padding(innerPadding))
         } else {
             LazyColumn(
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -79,7 +81,7 @@ fun FavoritesScreen(
                 modifier = Modifier.padding(innerPadding)
             ) {
                 if (teams.isNotEmpty()) {
-                    item { SectionHeader("Teams") }
+                    item { SectionHeader(stringResource(R.string.teams)) }
                     items(teams, key = { "team_${it.teamId}" }) { team ->
                         SwipeFavoriteTeamRow(
                             team = team,
@@ -89,7 +91,7 @@ fun FavoritesScreen(
                     }
                 }
                 if (leagues.isNotEmpty()) {
-                    item { SectionHeader("Leagues") }
+                    item { SectionHeader(stringResource(R.string.leagues_label)) }
                     items(leagues, key = { "league_${it.leagueId}" }) { league ->
                         SwipeFavoriteLeagueRow(
                             league = league,
@@ -137,7 +139,7 @@ private fun SwipeFavoriteTeamRow(
             ) {
                 Icon(
                     Icons.Default.Delete,
-                    contentDescription = "Delete",
+                    contentDescription = stringResource(R.string.delete),
                     tint = White,
                     modifier = Modifier.scale(scale)
                 )
@@ -165,7 +167,7 @@ private fun SwipeFavoriteTeamRow(
                     modifier = Modifier.weight(1f)
                 )
                 IconButton(onClick = onRemove) {
-                    Icon(Icons.Default.Delete, contentDescription = "Delete", tint = PrimaryRed)
+                    Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.delete), tint = PrimaryRed)
                 }
             }
         }
@@ -206,7 +208,7 @@ private fun SwipeFavoriteLeagueRow(
             ) {
                 Icon(
                     Icons.Default.Delete,
-                    contentDescription = "Delete",
+                    contentDescription = stringResource(R.string.delete),
                     tint = White,
                     modifier = Modifier.scale(scale)
                 )
@@ -233,7 +235,7 @@ private fun SwipeFavoriteLeagueRow(
                     Text(text = league.country, style = MaterialTheme.typography.bodySmall)
                 }
                 IconButton(onClick = onRemove) {
-                    Icon(Icons.Default.Delete, contentDescription = "Delete", tint = PrimaryRed)
+                    Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.delete), tint = PrimaryRed)
                 }
             }
         }

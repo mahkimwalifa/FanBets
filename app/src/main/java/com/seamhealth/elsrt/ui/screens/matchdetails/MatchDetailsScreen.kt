@@ -38,6 +38,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -60,14 +61,15 @@ import com.seamhealth.elsrt.ui.theme.PrimaryRed
 import com.seamhealth.elsrt.ui.theme.RedCard
 import com.seamhealth.elsrt.ui.theme.White
 import com.seamhealth.elsrt.ui.theme.YellowCard
+import com.seamhealth.elsrt.R
 
-private val matchDetailTabs = listOf(
-    "Overview",
-    "Statistics",
-    "Events",
-    "Lineups",
-    "H2H",
-    "Predictions"
+private val matchDetailTabResIds = listOf(
+    R.string.tab_overview,
+    R.string.tab_statistics,
+    R.string.tab_events,
+    R.string.tab_lineups,
+    R.string.tab_h2h,
+    R.string.tab_predictions
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -136,13 +138,13 @@ fun MatchDetailsScreen(
                             containerColor = LightGray,
                             contentColor = DarkBlue
                         ) {
-                            matchDetailTabs.forEachIndexed { index, label ->
+                            matchDetailTabResIds.forEachIndexed { index, resId ->
                                 Tab(
                                     selected = selectedTab == index,
                                     onClick = { selectedTab = index },
                                     text = {
                                         Text(
-                                            text = label,
+                                            text = stringResource(resId),
                                             maxLines = 1,
                                             overflow = TextOverflow.Ellipsis
                                         )
@@ -183,7 +185,7 @@ fun MatchDetailsScreen(
 @Composable
 private fun OverviewTab(fixture: FixtureResponse?) {
     if (fixture == null) {
-        Text("No match data", modifier = Modifier.padding(16.dp))
+        Text(stringResource(R.string.no_match_data), modifier = Modifier.padding(16.dp))
         return
     }
     val isLive = fixture.fixture?.status?.short in listOf(
@@ -209,7 +211,7 @@ private fun OverviewTab(fixture: FixtureResponse?) {
                     text = if (fixture.goals?.home != null) {
                         "${fixture.goals.home} : ${fixture.goals.away}"
                     } else {
-                        "vs"
+                        stringResource(R.string.vs)
                     },
                     style = MaterialTheme.typography.headlineMedium,
                     color = PrimaryRed,
@@ -231,7 +233,7 @@ private fun OverviewTab(fixture: FixtureResponse?) {
             }
         }
         Spacer(modifier = Modifier.height(16.dp))
-        SectionHeader("Stadium")
+        SectionHeader(stringResource(R.string.stadium))
         Text(
             text = listOfNotNull(
                 fixture.fixture?.venue?.name,
@@ -243,7 +245,7 @@ private fun OverviewTab(fixture: FixtureResponse?) {
         fixture.fixture?.referee?.let { ref ->
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                "Referee: $ref",
+                stringResource(R.string.referee_label, ref),
                 modifier = Modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.bodyMedium
             )
@@ -255,7 +257,7 @@ private fun OverviewTab(fixture: FixtureResponse?) {
 private fun StatisticsTab(statistics: List<FixtureStatisticsResponse>) {
     if (statistics.size < 2) {
         Text(
-            "Statistics unavailable",
+            stringResource(R.string.statistics_unavailable),
             modifier = Modifier.padding(16.dp),
             color = MediumGray
         )
@@ -279,7 +281,7 @@ private fun StatisticsTab(statistics: List<FixtureStatisticsResponse>) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             TeamLogo(url = home?.logo, size = 28.dp)
-            Text("Statistics", style = MaterialTheme.typography.titleSmall, color = DarkBlue)
+            Text(stringResource(R.string.statistics_label), style = MaterialTheme.typography.titleSmall, color = DarkBlue)
             TeamLogo(url = away?.logo, size = 28.dp)
         }
         types.forEach { type ->
@@ -355,7 +357,7 @@ private fun parseStatFraction(v: Any?): Float {
 @Composable
 private fun EventsTab(events: List<FixtureEvent>) {
     if (events.isEmpty()) {
-        Text("No events yet", modifier = Modifier.padding(16.dp), color = MediumGray)
+        Text(stringResource(R.string.no_events_yet), modifier = Modifier.padding(16.dp), color = MediumGray)
         return
     }
     val sorted = events.sortedWith(
@@ -408,7 +410,7 @@ private fun EventRow(ev: FixtureEvent) {
                 Text(it, style = MaterialTheme.typography.labelSmall, color = MediumGray)
             }
             ev.assist?.name?.takeIf { it.isNotBlank() }?.let {
-                Text("Assist: $it", style = MaterialTheme.typography.labelSmall)
+                Text(stringResource(R.string.assist_label, it), style = MaterialTheme.typography.labelSmall)
             }
         }
     }
@@ -421,7 +423,7 @@ private fun LineupsTab(
     onPlayerClick: (Int) -> Unit
 ) {
     if (lineups.isEmpty()) {
-        Text("Lineups unavailable", modifier = Modifier.padding(16.dp), color = MediumGray)
+        Text(stringResource(R.string.lineups_unavailable), modifier = Modifier.padding(16.dp), color = MediumGray)
         return
     }
     Column {
@@ -454,23 +456,23 @@ private fun LineupsTab(
                             color = DarkBlue
                         )
                         Text(
-                            "Formation: ${lu.formation ?: "—"}",
+                            stringResource(R.string.formation_label, lu.formation ?: "—"),
                             style = MaterialTheme.typography.bodySmall,
                             color = MediumGray
                         )
                         lu.coach?.name?.let {
-                            Text("Coach: $it", style = MaterialTheme.typography.bodySmall)
+                            Text(stringResource(R.string.coach_label, it), style = MaterialTheme.typography.bodySmall)
                         }
                     }
                 }
-                SectionHeader("Starting XI")
+                SectionHeader(stringResource(R.string.starting_xi))
                 lu.startXI.orEmpty().forEach { holder ->
                     val p = holder.player
                     if (p?.id != null) {
                         LineupPlayerRow(p.name, p.number, p.pos, p.grid, onClick = { onPlayerClick(p.id!!) })
                     }
                 }
-                SectionHeader("Substitutes")
+                SectionHeader(stringResource(R.string.substitutes))
                 lu.substitutes.orEmpty().forEach { holder ->
                     val p = holder.player
                     if (p?.id != null) {
@@ -524,7 +526,7 @@ private fun H2HTab(
     onFixtureClick: (Int) -> Unit
 ) {
     if (fixtures.isEmpty()) {
-        Text("No H2H matches", modifier = Modifier.padding(16.dp), color = MediumGray)
+        Text(stringResource(R.string.no_h2h_matches), modifier = Modifier.padding(16.dp), color = MediumGray)
         return
     }
     Column(
@@ -548,29 +550,29 @@ private fun PredictionsTab(
     Column(modifier = Modifier.padding(16.dp)) {
         val pred = prediction?.predictions
         if (pred == null && odds == null) {
-            Text("Predictions and odds unavailable", color = MediumGray)
+            Text(stringResource(R.string.predictions_unavailable), color = MediumGray)
             return
         }
         pred?.advice?.let {
-            SectionHeader("Advice")
+            SectionHeader(stringResource(R.string.advice))
             Text(it, style = MaterialTheme.typography.bodyLarge)
             Spacer(modifier = Modifier.height(12.dp))
         }
         pred?.percent?.let { pc ->
-            SectionHeader("Probabilities")
-            PredictionBar("Home", parsePercent(pc.home), PrimaryRed)
+            SectionHeader(stringResource(R.string.probabilities))
+            PredictionBar(stringResource(R.string.home), parsePercent(pc.home), PrimaryRed)
             Spacer(modifier = Modifier.height(6.dp))
-            PredictionBar("Draw", parsePercent(pc.draw), MediumGray)
+            PredictionBar(stringResource(R.string.draw), parsePercent(pc.draw), MediumGray)
             Spacer(modifier = Modifier.height(6.dp))
-            PredictionBar("Away", parsePercent(pc.away), DarkBlue)
+            PredictionBar(stringResource(R.string.away), parsePercent(pc.away), DarkBlue)
         }
         pred?.winner?.name?.let {
             Spacer(modifier = Modifier.height(12.dp))
-            Text("Favorite: $it", style = MaterialTheme.typography.titleSmall, color = DarkBlue)
+            Text(stringResource(R.string.favorite_label, it), style = MaterialTheme.typography.titleSmall, color = DarkBlue)
         }
         odds?.bookmakers?.takeIf { it.isNotEmpty() }?.let { bookmakers ->
             Spacer(modifier = Modifier.height(16.dp))
-            SectionHeader("Odds")
+            SectionHeader(stringResource(R.string.odds))
             bookmakers.take(5).forEach { bm ->
                 Text(
                     bm.name ?: "",

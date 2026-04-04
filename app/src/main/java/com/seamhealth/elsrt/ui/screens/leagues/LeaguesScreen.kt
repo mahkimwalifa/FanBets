@@ -31,9 +31,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.seamhealth.elsrt.R
 import com.seamhealth.elsrt.data.api.models.LeagueResponse
 import com.seamhealth.elsrt.ui.components.EmptyScreen
 import com.seamhealth.elsrt.ui.components.ErrorScreen
@@ -58,7 +60,7 @@ fun LeaguesScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Leagues", color = White) },
+                title = { Text(stringResource(R.string.tab_leagues), color = White) },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = PrimaryRed
                 )
@@ -70,7 +72,7 @@ fun LeaguesScreen(
             OutlinedTextField(
             value = searchQuery,
             onValueChange = viewModel::onSearchQueryChange,
-            placeholder = { Text("Search league or country...") },
+            placeholder = { Text(stringResource(R.string.search_league_hint)) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
             modifier = Modifier
                 .fillMaxWidth()
@@ -83,7 +85,7 @@ fun LeaguesScreen(
         when {
             state.isLoading -> LoadingScreen()
             state.error != null -> ErrorScreen(state.error!!, onRetry = viewModel::loadLeagues)
-            state.leaguesByCountry.isEmpty() -> EmptyScreen("No leagues found")
+            state.leaguesByCountry.isEmpty() -> EmptyScreen(stringResource(R.string.no_leagues_found))
             else -> {
                 PullToRefreshBox(
                     isRefreshing = isRefreshing,

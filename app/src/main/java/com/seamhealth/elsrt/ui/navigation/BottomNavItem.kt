@@ -1,5 +1,6 @@
 package com.seamhealth.elsrt.ui.navigation
 
+import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Favorite
@@ -7,17 +8,18 @@ import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Sports
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.seamhealth.elsrt.R
 
 sealed class BottomNavItem(
     val route: String,
-    val title: String,
+    @StringRes val titleResId: Int,
     val icon: ImageVector
 ) {
-    data object Live : BottomNavItem("live", "Live", Icons.Filled.Sports)
-    data object Matches : BottomNavItem("matches", "Matches", Icons.Filled.Schedule)
-    data object Leagues : BottomNavItem("leagues", "Leagues", Icons.Filled.EmojiEvents)
-    data object Favorites : BottomNavItem("favorites", "Favorites", Icons.Filled.Favorite)
-    data object More : BottomNavItem("more", "More", Icons.Filled.MoreHoriz)
+    data object Live : BottomNavItem("live", R.string.tab_live, Icons.Filled.Sports)
+    data object Matches : BottomNavItem("matches", R.string.tab_matches, Icons.Filled.Schedule)
+    data object Leagues : BottomNavItem("leagues", R.string.tab_leagues, Icons.Filled.EmojiEvents)
+    data object Favorites : BottomNavItem("favorites", R.string.tab_favorites, Icons.Filled.Favorite)
+    data object More : BottomNavItem("more", R.string.tab_more, Icons.Filled.MoreHoriz)
 }
 
 object Routes {

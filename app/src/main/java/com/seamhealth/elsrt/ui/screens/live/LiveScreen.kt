@@ -16,8 +16,10 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.seamhealth.elsrt.R
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.seamhealth.elsrt.ui.components.EmptyScreen
@@ -46,7 +48,7 @@ fun LiveScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Live",
+                        text = stringResource(R.string.tab_live),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                         color = White,
@@ -68,7 +70,7 @@ fun LiveScreen(
             errorMessage != null && state.fixtures.isEmpty() ->
                 ErrorScreen(errorMessage, onRetry = viewModel::loadLiveFixtures, modifier = Modifier.padding(innerPadding))
             state.fixtures.isEmpty() ->
-                EmptyScreen("No live matches at the moment", modifier = Modifier.padding(innerPadding))
+                EmptyScreen(stringResource(R.string.no_live_matches), modifier = Modifier.padding(innerPadding))
             else -> {
                 PullToRefreshBox(
                     isRefreshing = isRefreshing,

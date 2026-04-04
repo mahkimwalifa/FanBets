@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavType
@@ -64,8 +65,8 @@ fun FanBetsNavHost() {
                     bottomItems.forEach { item ->
                         val selected = currentDestination?.hierarchy?.any { it.route == item.route } == true
                         NavigationBarItem(
-                            icon = { Icon(item.icon, contentDescription = item.title, tint = if (selected) White else White.copy(alpha = 0.85f)) },
-                            label = { Text(item.title, color = if (selected) White else White.copy(alpha = 0.85f)) },
+                            icon = { Icon(item.icon, contentDescription = stringResource(item.titleResId), tint = if (selected) White else White.copy(alpha = 0.85f)) },
+                            label = { Text(stringResource(item.titleResId), color = if (selected) White else White.copy(alpha = 0.85f)) },
                             selected = selected,
                             onClick = {
                                 navController.navigate(item.route) {

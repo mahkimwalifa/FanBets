@@ -32,9 +32,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.seamhealth.elsrt.R
 import com.seamhealth.elsrt.ui.theme.DarkBlue
 import com.seamhealth.elsrt.ui.theme.GreenLive
 import com.seamhealth.elsrt.ui.theme.PrimaryRed
@@ -59,7 +61,7 @@ fun ErrorScreen(message: String, onRetry: () -> Unit, modifier: Modifier = Modif
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Loading Error",
+            text = stringResource(R.string.loading_error),
             style = MaterialTheme.typography.titleLarge,
             color = DarkBlue
         )
@@ -74,19 +76,20 @@ fun ErrorScreen(message: String, onRetry: () -> Unit, modifier: Modifier = Modif
             onClick = onRetry,
             colors = ButtonDefaults.buttonColors(containerColor = PrimaryRed)
         ) {
-            Text("Retry")
+            Text(stringResource(R.string.retry))
         }
     }
 }
 
 @Composable
-fun EmptyScreen(message: String = "No data", modifier: Modifier = Modifier) {
+fun EmptyScreen(message: String = "", modifier: Modifier = Modifier) {
+    val displayMessage = message.ifEmpty { stringResource(R.string.no_data) }
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = message,
+            text = displayMessage,
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -133,7 +136,7 @@ fun LiveBadge() {
         )
         Spacer(modifier = Modifier.width(4.dp))
         Text(
-            text = "LIVE",
+            text = stringResource(R.string.live_badge),
             style = MaterialTheme.typography.labelSmall,
             color = GreenLive
         )

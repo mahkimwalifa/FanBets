@@ -41,6 +41,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.seamhealth.elsrt.R
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
@@ -63,12 +65,12 @@ fun TopScorersScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val isRefreshing by viewModel.isRefreshing.collectAsStateWithLifecycle()
     var selectedTab by rememberSaveable { mutableIntStateOf(0) }
-    val tabs = listOf("Scorers", "Assists")
+    val tabs = listOf(stringResource(R.string.scorers), stringResource(R.string.assists_tab))
 
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Top Players", color = White) },
+                title = { Text(stringResource(R.string.top_players), color = White) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, null, tint = White)

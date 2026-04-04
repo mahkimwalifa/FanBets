@@ -20,9 +20,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.seamhealth.elsrt.data.api.models.FixtureResponse
+import com.seamhealth.elsrt.R
 import com.seamhealth.elsrt.ui.theme.DarkBlue
 import com.seamhealth.elsrt.ui.theme.GreenLive
 import com.seamhealth.elsrt.ui.theme.LightGray
@@ -97,7 +99,7 @@ fun MatchCard(
                     text = if (fixture.goals?.home != null) {
                         "${fixture.goals.home} - ${fixture.goals.away}"
                     } else {
-                        "vs"
+                        stringResource(R.string.vs)
                     },
                     style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
                     fontWeight = FontWeight.Bold,
@@ -136,26 +138,27 @@ fun MatchCard(
     }
 }
 
+@Composable
 private fun getStatusText(fixture: FixtureResponse): String {
     val status = fixture.fixture?.status
     return when (status?.short) {
-        "TBD" -> "TBD"
+        "TBD" -> stringResource(R.string.status_tbd)
         "NS" -> {
             fixture.fixture.date?.let { date ->
                 try {
                     date.substring(11, 16)
                 } catch (_: Exception) {
-                    "Not Started"
+                    stringResource(R.string.status_not_started)
                 }
-            } ?: "Not Started"
+            } ?: stringResource(R.string.status_not_started)
         }
-        "FT" -> "Finished"
-        "AET" -> "Finished (ET)"
-        "PEN" -> "Finished (PEN)"
-        "PST" -> "Postponed"
-        "CANC" -> "Cancelled"
-        "ABD" -> "Abandoned"
-        "HT" -> "Half-Time"
+        "FT" -> stringResource(R.string.status_finished)
+        "AET" -> stringResource(R.string.status_finished_et)
+        "PEN" -> stringResource(R.string.status_finished_pen)
+        "PST" -> stringResource(R.string.status_postponed)
+        "CANC" -> stringResource(R.string.status_cancelled)
+        "ABD" -> stringResource(R.string.status_abandoned)
+        "HT" -> stringResource(R.string.status_halftime)
         else -> status?.long ?: ""
     }
 }

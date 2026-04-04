@@ -35,8 +35,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.seamhealth.elsrt.R
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
@@ -65,7 +67,7 @@ fun PlayerDetailsScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = state.player?.player?.name ?: "Player",
+                        text = state.player?.player?.name ?: stringResource(R.string.player),
                         color = White,
                         maxLines = 1
                     )
@@ -116,12 +118,12 @@ fun PlayerDetailsScreen(
                         Spacer(modifier = Modifier.height(4.dp))
 
                         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                            info?.nationality?.let { InfoChip("Nat.", it) }
-                            info?.age?.let { InfoChip("Age", it.toString()) }
+                            info?.nationality?.let { InfoChip(stringResource(R.string.nationality_short), it) }
+                            info?.age?.let { InfoChip(stringResource(R.string.age), it.toString()) }
                         }
                         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                            info?.height?.let { InfoChip("Height", it) }
-                            info?.weight?.let { InfoChip("Weight", it) }
+                            info?.height?.let { InfoChip(stringResource(R.string.height), it) }
+                            info?.weight?.let { InfoChip(stringResource(R.string.weight), it) }
                         }
 
                         Spacer(modifier = Modifier.height(16.dp))
@@ -177,10 +179,10 @@ private fun StatCard(stat: PlayerStatistics) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                StatItem("Apps", "${stat.games?.appearances ?: 0}")
-                StatItem("Goals", "${stat.goals?.total ?: 0}")
-                StatItem("Assists", "${stat.goals?.assists ?: 0}")
-                StatItem("Rating", stat.games?.rating?.take(4) ?: "-")
+                StatItem(stringResource(R.string.stat_apps), "${stat.games?.appearances ?: 0}")
+                StatItem(stringResource(R.string.stat_goals), "${stat.goals?.total ?: 0}")
+                StatItem(stringResource(R.string.stat_assists), "${stat.goals?.assists ?: 0}")
+                StatItem(stringResource(R.string.stat_rating), stat.games?.rating?.take(4) ?: "-")
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -189,10 +191,10 @@ private fun StatCard(stat: PlayerStatistics) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                StatItem("Minutes", "${stat.games?.minutes ?: 0}")
-                StatItem("Shots", "${stat.shots?.total ?: 0}")
-                StatItem("Passes", "${stat.passes?.total ?: 0}")
-                StatItem("Dribbles", "${stat.dribbles?.success ?: 0}")
+                StatItem(stringResource(R.string.stat_minutes), "${stat.games?.minutes ?: 0}")
+                StatItem(stringResource(R.string.stat_shots), "${stat.shots?.total ?: 0}")
+                StatItem(stringResource(R.string.stat_passes), "${stat.passes?.total ?: 0}")
+                StatItem(stringResource(R.string.stat_dribbles), "${stat.dribbles?.success ?: 0}")
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -201,10 +203,10 @@ private fun StatCard(stat: PlayerStatistics) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                StatItem("YC", "${stat.cards?.yellow ?: 0}", YellowCard)
-                StatItem("RC", "${stat.cards?.red ?: 0}", RedCard)
-                StatItem("Tackles", "${stat.tackles?.total ?: 0}")
-                StatItem("Interceptions", "${stat.tackles?.interceptions ?: 0}")
+                StatItem(stringResource(R.string.stat_yellow_cards), "${stat.cards?.yellow ?: 0}", YellowCard)
+                StatItem(stringResource(R.string.stat_red_cards), "${stat.cards?.red ?: 0}", RedCard)
+                StatItem(stringResource(R.string.stat_tackles), "${stat.tackles?.total ?: 0}")
+                StatItem(stringResource(R.string.stat_interceptions), "${stat.tackles?.interceptions ?: 0}")
             }
         }
     }

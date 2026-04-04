@@ -29,6 +29,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.AccountRemovalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FanBets" />
+
     </application>
 
 </manifest>

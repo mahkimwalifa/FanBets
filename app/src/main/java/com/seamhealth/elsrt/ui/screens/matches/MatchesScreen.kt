@@ -31,9 +31,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.seamhealth.elsrt.R
 import com.seamhealth.elsrt.ui.components.EmptyScreen
 import com.seamhealth.elsrt.ui.components.ErrorScreen
 import com.seamhealth.elsrt.ui.components.LoadingScreen
@@ -84,7 +86,7 @@ fun MatchesScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "Matches",
+                        text = stringResource(R.string.tab_matches),
                         color = White,
                         style = MaterialTheme.typography.titleLarge
                     )
@@ -121,7 +123,7 @@ fun MatchesScreen(
                     ) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
-                                text = if (isToday) "Today" else dayFormatter.format(cal.time),
+                                text = if (isToday) stringResource(R.string.today) else dayFormatter.format(cal.time),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = if (isSelected) White else DarkBlue,
                                 textAlign = TextAlign.Center
@@ -143,7 +145,7 @@ fun MatchesScreen(
                 errorMessage != null && state.fixtures.isEmpty() ->
                     ErrorScreen(errorMessage, onRetry = viewModel::loadFixtures)
                 state.fixtures.isEmpty() ->
-                    EmptyScreen("No matches for this date")
+                    EmptyScreen(stringResource(R.string.no_matches_date))
                 else -> {
                     PullToRefreshBox(
                         isRefreshing = isRefreshing,
