@@ -161,18 +161,14 @@ fun BrowserScreen(
                     webViewClient = object : WebViewClient() {
                         override fun onPageStarted(view: WebView?, link: String?, favicon: android.graphics.Bitmap?) {
                             super.onPageStarted(view, link, favicon)
-							binding.loadingIndicator.visibility = View.VISIBLE
                             CookieManager.getInstance().flush()
                         }
 
                         override fun onPageFinished(view: WebView?, loadAddress: String?) {
                             super.onPageFinished(view, loadAddress)
-                            /*
-							if (isInitialLoad) {
+                            if (isInitialLoad) {
                                 isInitialLoad = false
                             }
-							*/
-							binding.loadingIndicator.visibility = View.GONE
                             CookieManager.getInstance().flush()
                         }
 
@@ -183,14 +179,6 @@ fun BrowserScreen(
                     }
 
                     webChromeClient = object : WebChromeClient() {
-					
-					                override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                    super.onProgressChanged(view, newProgress)
-                    if (newProgress == 100) {
-                        binding.loadingIndicator.visibility = View.GONE
-                    }
-                }
-					
                         override fun onShowFileChooser(
                             view: WebView?,
                             callback: ValueCallback<Array<Uri>>?,
@@ -223,7 +211,6 @@ fun BrowserScreen(
         )
 
         if (isInitialLoad) {
-		/*
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -235,7 +222,6 @@ fun BrowserScreen(
                     color = Color.White
                 )
             }
-		*/
         }
     }
 }

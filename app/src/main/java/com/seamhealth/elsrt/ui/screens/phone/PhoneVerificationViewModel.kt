@@ -193,7 +193,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
 
         try {
             val json = JSONObject(response)
-            val status = json.optString("status", "")
+            val status =  json.optString("status", "")
 
             storage.savePhone(phone)
             storage.saveCountryCode(countryCode)
