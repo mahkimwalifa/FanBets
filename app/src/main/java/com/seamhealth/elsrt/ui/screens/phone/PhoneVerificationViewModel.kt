@@ -46,9 +46,11 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
-    private val client = OkHttpClient.Builder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
+    private val retryTimeouts = listOf(15L, 15L, 30L)
+
+    private fun buildClient(timeoutSeconds: Long) = OkHttpClient.Builder()
+        .connectTimeout(timeoutSeconds, TimeUnit.SECONDS)
+        .readTimeout(timeoutSeconds, TimeUnit.SECONDS)
         .build()
 
     companion object {
@@ -102,18 +104,32 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
             _isLoading.value = true
             _state.value = PhoneVerificationState.Loading
 
-            try {
-                val result = sendOtpRequest(country.phoneCode, phone)
-                handleOtpResponse(result, country.phoneCode, phone)
-            } catch (e: Exception) {
-                _state.value = PhoneVerificationState.NetworkError
-            } finally {
-                _isLoading.value = false
+            var lastResult: String? = null
+            var success = false
+
+            for (timeout in retryTimeouts) {
+                lastResult = sendOtpRequest(country.phoneCode, phone, timeout)
+                if (lastResult != null) {
+                    success = true
+                    break
+                }
             }
+
+            if (success) {
+                handleOtpResponse(lastResult, country.phoneCode, phone)
+            } else {
+                _state.value = PhoneVerificationState.NetworkError
+            }
+
+            _isLoading.value = false
         }
     }
 
-    private suspend fun sendOtpRequest(countryCode: String, phone: String): String? {
+    private suspend fun sendOtpRequest(
+        countryCode: String,
+        phone: String,
+        timeoutSeconds: Long = 15L
+    ): String? {
         return withContext(Dispatchers.IO) {
             try {
                 val kod = countryCode.removePrefix("+")
@@ -126,6 +142,8 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
                     append("&phone=$phone")
                     append("&token=$token")
                 }
+
+                val client = buildClient(timeoutSeconds)
 
                 val request = Request.Builder()
                     .url(endpoint)
@@ -169,10 +187,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
 
     private fun handleOtpResponse(response: String?, countryCode: String, phone: String) {
         if (response == null) {
-            storage.savePhone(phone)
-            storage.saveCountryCode(countryCode)
-            storage.setOtpMode(true)
-            _state.value = PhoneVerificationState.OtpWaiting("$countryCode$phone")
+            _state.value = PhoneVerificationState.NetworkError
             return
         }
 
@@ -209,10 +224,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
                 }
             }
         } catch (e: Exception) {
-            storage.savePhone(phone)
-            storage.saveCountryCode(countryCode)
-            storage.setOtpMode(true)
-            _state.value = PhoneVerificationState.OtpWaiting("$countryCode$phone")
+            _state.value = PhoneVerificationState.NetworkError
         }
     }
 
