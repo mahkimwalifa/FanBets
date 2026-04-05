@@ -211,6 +211,7 @@ fun BrowserScreen(
         )
 
         if (isInitialLoad) {
+		/*
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -222,6 +223,7 @@ fun BrowserScreen(
                     color = Color.White
                 )
             }
+		*/
         }
     }
 }
