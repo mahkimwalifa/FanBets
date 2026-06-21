@@ -143,7 +143,7 @@ fun PhoneEntryScreen(
                     Text(
                         text = stringResource(R.string.welcome_title),
                         color = Color.White,
-                        fontSize = 28.sp,
+                        fontSize = 24.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth()
@@ -151,7 +151,7 @@ fun PhoneEntryScreen(
                     Text(
                         text = stringResource(R.string.welcome_subtitle),
                         color = Color.White.copy(alpha = 0.9f),
-                        fontSize = 14.sp,
+                        fontSize = 12.sp,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth()
                     )
