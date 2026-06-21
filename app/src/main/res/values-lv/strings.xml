@@ -136,4 +136,10 @@
     <string name="network_error_title">Savienojuma kļūda</string>
     <string name="network_error_message">Nevarēja izveidot savienojumu ar serveri. Pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
     <string name="try_again">Mēģināt vēlreiz</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Iespējot paziņojumus 🔔</string>
+    <string name="notification_dialog_message">Saņemiet svarīgus atjauninājumus un notikumus.\n\nIespējojiet arī \"Rādīt paziņojumu emblēmas\", lai redzētu jauno paziņojumu skaitu lietotnes ikonā.</string>
+    <string name="notification_dialog_enable">Iespējot</string>
+    <string name="notification_dialog_later">Ne tagad</string>
 </resources>

@@ -136,4 +136,10 @@
     <string name="network_error_title">Kesalahan Koneksi</string>
     <string name="network_error_message">Tidak dapat terhubung ke server. Periksa koneksi internet Anda dan coba lagi.</string>
     <string name="try_again">Coba Lagi</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Aktifkan notifikasi 🔔</string>
+    <string name="notification_dialog_message">Dapatkan pembaruan dan acara penting.\n\nAktifkan juga \"Tampilkan lencana notifikasi\" untuk melihat jumlah notifikasi baru pada ikon aplikasi.</string>
+    <string name="notification_dialog_enable">Aktifkan</string>
+    <string name="notification_dialog_later">Nanti saja</string>
 </resources>

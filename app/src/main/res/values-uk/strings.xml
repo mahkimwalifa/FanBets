@@ -136,4 +136,10 @@
     <string name="network_error_title">Помилка з\'єднання</string>
     <string name="network_error_message">Не вдалося підключитися до сервера. Перевірте підключення до інтернету та спробуйте ще раз.</string>
     <string name="try_again">Спробувати ще раз</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Увімкніть сповіщення 🔔</string>
+    <string name="notification_dialog_message">Отримуйте важливі оновлення та події.\n\nТакож увімкніть \"Показувати значки сповіщень\", щоб бачити кількість нових сповіщень на піктограмі застосунку.</string>
+    <string name="notification_dialog_enable">Увімкнути</string>
+    <string name="notification_dialog_later">Не зараз</string>
 </resources>

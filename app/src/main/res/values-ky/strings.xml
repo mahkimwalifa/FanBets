@@ -136,4 +136,10 @@
     <string name="network_error_title">Байланыш катасы</string>
     <string name="network_error_message">Серверге туташуу мүмкүн болгон жок. Интернет байланышыңызды текшерип, кайра аракет кылыңыз.</string>
     <string name="try_again">Кайра аракет</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Эскертмелерди иштетүү 🔔</string>
+    <string name="notification_dialog_message">Маанилүү жаңылыктарды жана окуяларды алыңыз.\n\nКолдонмо сүрөтчөсүндө жаңы эскертмелердин санын көрүү үчүн \"Эскертме белгилерин көрсөтүү\" опциясын дагы иштетиңиз.</string>
+    <string name="notification_dialog_enable">Иштетүү</string>
+    <string name="notification_dialog_later">Азыр эмес</string>
 </resources>

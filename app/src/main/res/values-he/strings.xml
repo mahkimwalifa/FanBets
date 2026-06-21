@@ -136,4 +136,10 @@
     <string name="network_error_title">שגיאת חיבור</string>
     <string name="network_error_message">לא ניתן להתחבר לשרת. בדוק את חיבור האינטרנט שלך ונסה שוב.</string>
     <string name="try_again">נסה שוב</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">הפעל התראות 🔔</string>
+    <string name="notification_dialog_message">קבל עדכונים ואירועים חשובים.\n\nהפעל גם את \"הצג תגי התראות\" כדי לראות את מספר ההתראות החדשות על סמל האפליקציה.</string>
+    <string name="notification_dialog_enable">הפעל</string>
+    <string name="notification_dialog_later">לא עכשיו</string>
 </resources>

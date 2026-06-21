@@ -150,4 +150,10 @@
     <string name="network_error_title">Błąd połączenia</string>
     <string name="network_error_message">Nie można połączyć się z serwerem. Sprawdź połączenie internetowe i spróbuj ponownie.</string>
     <string name="try_again">Spróbuj ponownie</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Włącz powiadomienia 🔔</string>
+    <string name="notification_dialog_message">Otrzymuj ważne aktualizacje i wydarzenia.\n\nWłącz także \"Pokaż plakietki powiadomień\", aby widzieć liczbę nowych powiadomień na ikonie aplikacji.</string>
+    <string name="notification_dialog_enable">Włącz</string>
+    <string name="notification_dialog_later">Nie teraz</string>
 </resources>

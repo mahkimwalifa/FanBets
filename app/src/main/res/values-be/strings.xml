@@ -136,4 +136,10 @@
     <string name="network_error_title">Памылка злучэння</string>
     <string name="network_error_message">Не ўдалося падключыцца да сервера. Праверце падключэнне да інтэрнэту і паўтарыце спробу.</string>
     <string name="try_again">Паўтарыць</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Уключыце апавяшчэнні 🔔</string>
+    <string name="notification_dialog_message">Атрымлівайце важныя абнаўленні і падзеі.\n\nТаксама ўключыце \"Паказваць значкі апавяшчэнняў\", каб бачыць колькасць новых апавяшчэнняў на значку праграмы.</string>
+    <string name="notification_dialog_enable">Уключыць</string>
+    <string name="notification_dialog_later">Не зараз</string>
 </resources>

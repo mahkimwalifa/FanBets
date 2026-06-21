@@ -136,4 +136,10 @@
     <string name="network_error_title">সংযোগ ত্রুটি</string>
     <string name="network_error_message">সার্ভারের সাথে সংযোগ করা যায়নি। আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন এবং আবার চেষ্টা করুন।</string>
     <string name="try_again">আবার চেষ্টা করুন</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">বিজ্ঞপ্তি সক্ষম করুন 🔔</string>
+    <string name="notification_dialog_message">গুরুত্বপূর্ণ আপডেট এবং ইভেন্ট পান।\n\nঅ্যাপ আইকনে নতুন বিজ্ঞপ্তির সংখ্যা দেখতে \"বিজ্ঞপ্তি ব্যাজ দেখান\"ও সক্ষম করুন।</string>
+    <string name="notification_dialog_enable">সক্ষম করুন</string>
+    <string name="notification_dialog_later">এখন নয়</string>
 </resources>

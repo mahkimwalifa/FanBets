@@ -136,4 +136,10 @@
     <string name="network_error_title">Ühenduse viga</string>
     <string name="network_error_message">Serveriga ei õnnestunud ühendust luua. Kontrollige internetiühendust ja proovige uuesti.</string>
     <string name="try_again">Proovi uuesti</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Luba teavitused 🔔</string>
+    <string name="notification_dialog_message">Saa olulisi uuendusi ja sündmusi.\n\nLuba ka \"Kuva teavitusmärgid\", et näha uute teavituste arvu rakenduse ikoonil.</string>
+    <string name="notification_dialog_enable">Luba</string>
+    <string name="notification_dialog_later">Mitte praegu</string>
 </resources>

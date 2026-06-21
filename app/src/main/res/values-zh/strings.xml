@@ -136,4 +136,10 @@
     <string name="network_error_title">连接错误</string>
     <string name="network_error_message">无法连接到服务器。请检查您的网络连接并重试。</string>
     <string name="try_again">重试</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">启用通知 🔔</string>
+    <string name="notification_dialog_message">获取重要更新和活动。\n\n同时启用\"显示通知标记\"，以便在应用图标上查看新通知的数量。</string>
+    <string name="notification_dialog_enable">启用</string>
+    <string name="notification_dialog_later">暂不</string>
 </resources>

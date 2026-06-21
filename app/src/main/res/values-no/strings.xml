@@ -137,4 +137,10 @@
     <string name="network_error_title">Tilkoblingsfeil</string>
     <string name="network_error_message">Kunne ikke koble til serveren. Sjekk internettforbindelsen din og prøv igjen.</string>
     <string name="try_again">Prøv igjen</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Aktiver varsler 🔔</string>
+    <string name="notification_dialog_message">Få viktige oppdateringer og hendelser.\n\nAktiver også \"Vis varselmerker\" for å se antall nye varsler på appikonet.</string>
+    <string name="notification_dialog_enable">Aktiver</string>
+    <string name="notification_dialog_later">Ikke nå</string>
 </resources>

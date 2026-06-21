@@ -136,4 +136,10 @@
     <string name="network_error_title">የግንኙነት ስህተት</string>
     <string name="network_error_message">ከአገልጋዩ ጋር መገናኘት አልተቻለም። የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
     <string name="try_again">እንደገና ሞክር</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">ማሳወቂያዎችን አንቃ 🔔</string>
+    <string name="notification_dialog_message">ጠቃሚ ዝማኔዎችንና ክስተቶችን ይቀበሉ።\n\nበመተግበሪያው አዶ ላይ የአዳዲስ ማሳወቂያዎች ቁጥር ለማየት \"የማሳወቂያ ምልክቶችን አሳይ\"ንም አንቃ።</string>
+    <string name="notification_dialog_enable">አንቃ</string>
+    <string name="notification_dialog_later">አሁን አይደለም</string>
 </resources>

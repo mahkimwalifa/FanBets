@@ -137,4 +137,10 @@
     <string name="network_error_title">Error de conexión</string>
     <string name="network_error_message">No se pudo conectar al servidor. Verifique su conexión a Internet e intente nuevamente.</string>
     <string name="try_again">Reintentar</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Activar notificaciones 🔔</string>
+    <string name="notification_dialog_message">Recibe actualizaciones y eventos importantes.\n\nActiva también \"Mostrar insignias de notificación\" para ver el número de notificaciones nuevas en el icono de la aplicación.</string>
+    <string name="notification_dialog_enable">Activar</string>
+    <string name="notification_dialog_later">Ahora no</string>
 </resources>

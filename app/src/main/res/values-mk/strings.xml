@@ -150,4 +150,10 @@
     <string name="network_error_title">Грешка во врската</string>
     <string name="network_error_message">Не може да се поврзе со серверот. Проверете ја интернет врската и обидете се повторно.</string>
     <string name="try_again">Обиди се повторно</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Овозможи известувања 🔔</string>
+    <string name="notification_dialog_message">Добивајте важни ажурирања и настани.\n\nИсто така овозможете \"Прикажи значки за известувања\" за да го гледате бројот на нови известувања на иконата на апликацијата.</string>
+    <string name="notification_dialog_enable">Овозможи</string>
+    <string name="notification_dialog_later">Не сега</string>
 </resources>

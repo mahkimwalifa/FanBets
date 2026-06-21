@@ -136,4 +136,10 @@
     <string name="network_error_title">خطای اتصال</string>
     <string name="network_error_message">اتصال به سرور امکان‌پذیر نیست. اتصال اینترنت خود را بررسی کرده و دوباره تلاش کنید.</string>
     <string name="try_again">تلاش مجدد</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">فعال‌سازی اعلان‌ها 🔔</string>
+    <string name="notification_dialog_message">به‌روزرسانی‌ها و رویدادهای مهم را دریافت کنید.\n\nهمچنین \"نمایش نشان‌های اعلان\" را فعال کنید تا تعداد اعلان‌های جدید را روی نماد برنامه ببینید.</string>
+    <string name="notification_dialog_enable">فعال‌سازی</string>
+    <string name="notification_dialog_later">اکنون نه</string>
 </resources>

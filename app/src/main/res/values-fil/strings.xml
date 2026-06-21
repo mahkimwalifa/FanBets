@@ -136,4 +136,10 @@
     <string name="network_error_title">Error sa Koneksyon</string>
     <string name="network_error_message">Hindi makakonekta sa server. Suriin ang iyong koneksyon sa internet at subukang muli.</string>
     <string name="try_again">Subukan Muli</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">I-enable ang mga notification 🔔</string>
+    <string name="notification_dialog_message">Kumuha ng mahahalagang update at event.\n\nI-enable din ang \"Ipakita ang mga notification badge\" para makita ang bilang ng mga bagong notification sa icon ng app.</string>
+    <string name="notification_dialog_enable">I-enable</string>
+    <string name="notification_dialog_later">Hindi ngayon</string>
 </resources>

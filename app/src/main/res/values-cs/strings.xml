@@ -150,4 +150,10 @@
     <string name="network_error_title">Chyba připojení</string>
     <string name="network_error_message">Nelze se připojit k serveru. Zkontrolujte připojení k internetu a zkuste to znovu.</string>
     <string name="try_again">Zkusit znovu</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Povolit oznámení 🔔</string>
+    <string name="notification_dialog_message">Získávejte důležité aktualizace a události.\n\nTaké povolte \"Zobrazovat odznaky oznámení\", abyste viděli počet nových oznámení na ikoně aplikace.</string>
+    <string name="notification_dialog_enable">Povolit</string>
+    <string name="notification_dialog_later">Teď ne</string>
 </resources>

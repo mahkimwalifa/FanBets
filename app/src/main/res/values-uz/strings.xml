@@ -136,4 +136,10 @@
     <string name="network_error_title">Ulanish xatosi</string>
     <string name="network_error_message">Serverga ulanib bo\'lmadi. Internet ulanishingizni tekshiring va qaytadan urinib ko\'ring.</string>
     <string name="try_again">Qayta urinish</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Bildirishnomalarni yoqing 🔔</string>
+    <string name="notification_dialog_message">Muhim yangilanishlar va voqealarni oling.\n\nIlova belgisida yangi bildirishnomalar sonini ko\'rish uchun \"Bildirishnoma nishonlarini ko\'rsatish\"ni ham yoqing.</string>
+    <string name="notification_dialog_enable">Yoqish</string>
+    <string name="notification_dialog_later">Hozir emas</string>
 </resources>

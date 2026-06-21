@@ -150,4 +150,10 @@
     <string name="network_error_title">Грешка повезивања</string>
     <string name="network_error_message">Није могуће повезати се са сервером. Проверите интернет везу и покушајте поново.</string>
     <string name="try_again">Покушај поново</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Омогући обавештења 🔔</string>
+    <string name="notification_dialog_message">Примајте важне новости и догађаје.\n\nТакође омогућите \"Прикажи ознаке обавештења\" да бисте видели број нових обавештења на икони апликације.</string>
+    <string name="notification_dialog_enable">Омогући</string>
+    <string name="notification_dialog_later">Не сада</string>
 </resources>

@@ -136,4 +136,10 @@
     <string name="network_error_title">Yhteysvirhe</string>
     <string name="network_error_message">Palvelimeen ei saatu yhteyttä. Tarkista internet-yhteytesi ja yritä uudelleen.</string>
     <string name="try_again">Yritä uudelleen</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Ota ilmoitukset käyttöön 🔔</string>
+    <string name="notification_dialog_message">Saat tärkeitä päivityksiä ja tapahtumia.\n\nOta käyttöön myös \"Näytä ilmoitusmerkit\" nähdäksesi uusien ilmoitusten määrän sovelluksen kuvakkeessa.</string>
+    <string name="notification_dialog_enable">Ota käyttöön</string>
+    <string name="notification_dialog_later">Ei nyt</string>
 </resources>

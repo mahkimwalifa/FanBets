@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -14,8 +15,8 @@ android {
         applicationId = "com.seamhealth.elsrt"
         minSdk = 24
         targetSdk = 36
-        versionCode = 275
-        versionName = "2.7.5"
+        versionCode = 280
+        versionName = "2.8.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -77,6 +78,9 @@ dependencies {
     ksp(libs.room.compiler)
 
     implementation(libs.coil.compose)
+
+    implementation(libs.onesignal)
+    implementation("me.leolin:ShortcutBadger:1.1.22@aar")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -136,4 +136,10 @@
     <string name="network_error_title">जडान त्रुटि</string>
     <string name="network_error_message">सर्भरमा जडान गर्न सकिएन। कृपया आफ्नो इन्टरनेट जडान जाँच गर्नुहोस् र पुन: प्रयास गर्नुहोस्।</string>
     <string name="try_again">पुन: प्रयास गर्नुहोस्</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">सूचनाहरू सक्षम गर्नुहोस् 🔔</string>
+    <string name="notification_dialog_message">महत्त्वपूर्ण अपडेट र घटनाहरू प्राप्त गर्नुहोस्।\n\nएप आइकनमा नयाँ सूचनाहरूको संख्या हेर्न \"सूचना ब्याज देखाउनुहोस्\" पनि सक्षम गर्नुहोस्।</string>
+    <string name="notification_dialog_enable">सक्षम गर्नुहोस्</string>
+    <string name="notification_dialog_later">अहिले होइन</string>
 </resources>

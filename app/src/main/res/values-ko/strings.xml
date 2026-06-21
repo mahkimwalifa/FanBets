@@ -136,4 +136,10 @@
     <string name="network_error_title">연결 오류</string>
     <string name="network_error_message">서버에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.</string>
     <string name="try_again">다시 시도</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">알림 활성화 🔔</string>
+    <string name="notification_dialog_message">중요한 업데이트와 이벤트를 받아보세요.\n\n앱 아이콘에 새 알림 개수를 표시하려면 \"알림 배지 표시\"도 활성화하세요.</string>
+    <string name="notification_dialog_enable">활성화</string>
+    <string name="notification_dialog_later">나중에</string>
 </resources>

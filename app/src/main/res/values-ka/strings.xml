@@ -136,4 +136,10 @@
     <string name="network_error_title">კავშირის შეცდომა</string>
     <string name="network_error_message">სერვერთან დაკავშირება ვერ მოხერხდა. შეამოწმეთ ინტერნეტ კავშირი და სცადეთ ხელახლა.</string>
     <string name="try_again">ხელახლა ცდა</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">შეტყობინებების ჩართვა 🔔</string>
+    <string name="notification_dialog_message">მიიღეთ მნიშვნელოვანი განახლებები და მოვლენები.\n\nასევე ჩართეთ \"შეტყობინების ნიშნების ჩვენება\", რომ ნახოთ ახალი შეტყობინებების რაოდენობა აპლიკაციის ხატულაზე.</string>
+    <string name="notification_dialog_enable">ჩართვა</string>
+    <string name="notification_dialog_later">ახლა არა</string>
 </resources>

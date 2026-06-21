@@ -150,4 +150,10 @@
     <string name="network_error_title">Napaka povezave</string>
     <string name="network_error_message">Povezave s strežnikom ni bilo mogoče vzpostaviti. Preverite internetno povezavo in poskusite znova.</string>
     <string name="try_again">Poskusi znova</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Omogoči obvestila 🔔</string>
+    <string name="notification_dialog_message">Prejemajte pomembne posodobitve in dogodke.\n\nOmogočite tudi \"Prikaži značke obvestil\", da vidite število novih obvestil na ikoni aplikacije.</string>
+    <string name="notification_dialog_enable">Omogoči</string>
+    <string name="notification_dialog_later">Ne zdaj</string>
 </resources>

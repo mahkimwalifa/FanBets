@@ -136,4 +136,10 @@
     <string name="network_error_title">Σφάλμα σύνδεσης</string>
     <string name="network_error_message">Δεν ήταν δυνατή η σύνδεση με τον διακομιστή. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και δοκιμάστε ξανά.</string>
     <string name="try_again">Δοκιμάστε ξανά</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Ενεργοποίηση ειδοποιήσεων 🔔</string>
+    <string name="notification_dialog_message">Λάβετε σημαντικές ενημερώσεις και εκδηλώσεις.\n\nΕνεργοποιήστε επίσης την επιλογή \"Εμφάνιση σημάτων ειδοποιήσεων\" για να βλέπετε τον αριθμό των νέων ειδοποιήσεων στο εικονίδιο της εφαρμογής.</string>
+    <string name="notification_dialog_enable">Ενεργοποίηση</string>
+    <string name="notification_dialog_later">Όχι τώρα</string>
 </resources>

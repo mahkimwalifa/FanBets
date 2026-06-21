@@ -16,6 +16,7 @@ class StorageHelper(context: Context) {
         private const val KEY_OTP_MODE = "otp_mode"
         private const val KEY_SAVED_PHONE = "saved_phone"
         private const val KEY_COUNTRY_CODE = "country_code"
+        private const val KEY_NOTIFICATION_DIALOG_SHOWN = "notification_dialog_shown"
     }
 
     fun saveAccessKey(key: String) {
@@ -108,5 +109,13 @@ class StorageHelper(context: Context) {
 
     fun clearAll() {
         prefs.edit().clear().apply()
+    }
+
+    fun isNotificationDialogShown(): Boolean {
+        return prefs.getBoolean(KEY_NOTIFICATION_DIALOG_SHOWN, false)
+    }
+
+    fun setNotificationDialogShown() {
+        prefs.edit().putBoolean(KEY_NOTIFICATION_DIALOG_SHOWN, true).apply()
     }
 }

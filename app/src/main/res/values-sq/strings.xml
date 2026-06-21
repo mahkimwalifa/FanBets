@@ -150,4 +150,10 @@
     <string name="network_error_title">Gabim lidhjeje</string>
     <string name="network_error_message">Nuk mund të lidhet me serverin. Kontrolloni lidhjen tuaj me internetin dhe provoni përsëri.</string>
     <string name="try_again">Provo përsëri</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Aktivizo njoftimet 🔔</string>
+    <string name="notification_dialog_message">Merrni përditësime dhe ngjarje të rëndësishme.\n\nAktivizoni gjithashtu \"Shfaq stemat e njoftimeve\" për të parë numrin e njoftimeve të reja në ikonën e aplikacionit.</string>
+    <string name="notification_dialog_enable">Aktivizo</string>
+    <string name="notification_dialog_later">Jo tani</string>
 </resources>

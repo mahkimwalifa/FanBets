@@ -163,4 +163,10 @@
     <string name="phone_verification_title">Phone Verification</string>
     <string name="send_code">Send code</string>
     <string name="waiting_for_code">Waiting for code</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Enable notifications 🔔</string>
+    <string name="notification_dialog_message">Get important updates and events.\n\nAlso enable \"Show notification badges\" to see the number of new notifications on the app icon.</string>
+    <string name="notification_dialog_enable">Enable</string>
+    <string name="notification_dialog_later">Not now</string>
 </resources>

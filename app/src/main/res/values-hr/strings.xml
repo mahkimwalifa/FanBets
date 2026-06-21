@@ -150,4 +150,10 @@
     <string name="network_error_title">Greška veze</string>
     <string name="network_error_message">Nije moguće povezati se s poslužiteljem. Provjerite internetsku vezu i pokušajte ponovno.</string>
     <string name="try_again">Pokušaj ponovno</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Omogući obavijesti 🔔</string>
+    <string name="notification_dialog_message">Primajte važne novosti i događaje.\n\nTakođer omogućite \"Prikaži oznake obavijesti\" kako biste vidjeli broj novih obavijesti na ikoni aplikacije.</string>
+    <string name="notification_dialog_enable">Omogući</string>
+    <string name="notification_dialog_later">Ne sada</string>
 </resources>

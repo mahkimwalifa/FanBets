@@ -164,4 +164,10 @@
     <string name="phone_verification_title">Верификация</string>
     <string name="send_code">Отправить код</string>
     <string name="waiting_for_code">Ожидание кода</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Включите уведомления 🔔</string>
+    <string name="notification_dialog_message">Получайте важные обновления и события.\n\nТакже включите \"Показывать значки уведомлений\", чтобы видеть количество новых уведомлений на иконке приложения.</string>
+    <string name="notification_dialog_enable">Включить</string>
+    <string name="notification_dialog_later">Не сейчас</string>
 </resources>

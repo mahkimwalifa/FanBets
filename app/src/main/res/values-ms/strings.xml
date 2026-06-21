@@ -136,4 +136,10 @@
     <string name="network_error_title">Ralat Sambungan</string>
     <string name="network_error_message">Tidak dapat menyambung ke pelayan. Sila semak sambungan internet anda dan cuba lagi.</string>
     <string name="try_again">Cuba Lagi</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Dayakan pemberitahuan 🔔</string>
+    <string name="notification_dialog_message">Dapatkan kemas kini dan acara penting.\n\nDayakan juga \"Tunjukkan lencana pemberitahuan\" untuk melihat bilangan pemberitahuan baharu pada ikon aplikasi.</string>
+    <string name="notification_dialog_enable">Dayakan</string>
+    <string name="notification_dialog_later">Bukan sekarang</string>
 </resources>

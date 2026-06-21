@@ -150,4 +150,10 @@
     <string name="network_error_title">Грешка при свързване</string>
     <string name="network_error_message">Не може да се свърже със сървъра. Проверете интернет връзката си и опитайте отново.</string>
     <string name="try_again">Опитай отново</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Активирайте известията 🔔</string>
+    <string name="notification_dialog_message">Получавайте важни актуализации и събития.\n\nСъщо така активирайте \"Показване на значки за известия\", за да виждате броя на новите известия върху иконата на приложението.</string>
+    <string name="notification_dialog_enable">Активирай</string>
+    <string name="notification_dialog_later">Не сега</string>
 </resources>

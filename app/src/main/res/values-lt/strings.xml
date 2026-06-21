@@ -136,4 +136,10 @@
     <string name="network_error_title">Ryšio klaida</string>
     <string name="network_error_message">Nepavyko prisijungti prie serverio. Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
     <string name="try_again">Bandyti dar kartą</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Įjungti pranešimus 🔔</string>
+    <string name="notification_dialog_message">Gaukite svarbius atnaujinimus ir įvykius.\n\nTaip pat įjunkite \"Rodyti pranešimų ženklelius\", kad matytumėte naujų pranešimų skaičių programėlės piktogramoje.</string>
+    <string name="notification_dialog_enable">Įjungti</string>
+    <string name="notification_dialog_later">Ne dabar</string>
 </resources>

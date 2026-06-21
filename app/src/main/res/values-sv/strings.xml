@@ -137,4 +137,10 @@
     <string name="network_error_title">Anslutningsfel</string>
     <string name="network_error_message">Kunde inte ansluta till servern. Kontrollera din internetanslutning och försök igen.</string>
     <string name="try_again">Försök igen</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Aktivera aviseringar 🔔</string>
+    <string name="notification_dialog_message">Få viktiga uppdateringar och händelser.\n\nAktivera även \"Visa aviseringsmärken\" för att se antalet nya aviseringar på appikonen.</string>
+    <string name="notification_dialog_enable">Aktivera</string>
+    <string name="notification_dialog_later">Inte nu</string>
 </resources>

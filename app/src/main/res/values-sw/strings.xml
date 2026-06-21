@@ -136,4 +136,10 @@
     <string name="network_error_title">Hitilafu ya Muunganisho</string>
     <string name="network_error_message">Imeshindwa kuunganisha na seva. Tafadhali angalia muunganisho wako wa intaneti na ujaribu tena.</string>
     <string name="try_again">Jaribu Tena</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Washa arifa 🔔</string>
+    <string name="notification_dialog_message">Pata masasisho na matukio muhimu.\n\nPia washa \"Onyesha beji za arifa\" ili kuona idadi ya arifa mpya kwenye aikoni ya programu.</string>
+    <string name="notification_dialog_enable">Washa</string>
+    <string name="notification_dialog_later">Si sasa</string>
 </resources>

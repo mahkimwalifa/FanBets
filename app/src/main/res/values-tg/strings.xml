@@ -136,4 +136,10 @@
     <string name="network_error_title">Хатои пайвастшавӣ</string>
     <string name="network_error_message">Ба сервер пайваст шудан имконнопазир аст. Пайвастшавии интернетиатонро тафтиш кунед ва дубора кӯшиш кунед.</string>
     <string name="try_again">Аз нав кӯшиш кунед</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Огоҳиномаҳоро фаъол кунед 🔔</string>
+    <string name="notification_dialog_message">Навигариҳо ва рӯйдодҳои муҳимро гиред.\n\nҲамчунин \"Нишонаҳои огоҳиномаро нишон диҳед\"-ро фаъол кунед, то шумораи огоҳиномаҳои навро дар нишонаи барнома бинед.</string>
+    <string name="notification_dialog_enable">Фаъол кардан</string>
+    <string name="notification_dialog_later">Ҳозир не</string>
 </resources>

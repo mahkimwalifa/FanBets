@@ -136,4 +136,10 @@
     <string name="network_error_title">کنکشن کی خرابی</string>
     <string name="network_error_message">سرور سے جڑنے میں ناکام۔ براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔</string>
     <string name="try_again">دوبارہ کوشش کریں</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">اطلاعات فعال کریں 🔔</string>
+    <string name="notification_dialog_message">اہم اپ ڈیٹس اور ایونٹس حاصل کریں۔\n\nایپ آئیکن پر نئی اطلاعات کی تعداد دیکھنے کے لیے \"اطلاعاتی بیجز دکھائیں\" کو بھی فعال کریں۔</string>
+    <string name="notification_dialog_enable">فعال کریں</string>
+    <string name="notification_dialog_later">ابھی نہیں</string>
 </resources>

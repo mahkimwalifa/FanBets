@@ -136,4 +136,10 @@
     <string name="network_error_title">Байланыс қатесі</string>
     <string name="network_error_message">Серверге қосылу мүмкін болмады. Интернет қосылымыңызды тексеріп, қайталап көріңіз.</string>
     <string name="try_again">Қайталау</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Хабарламаларды қосу 🔔</string>
+    <string name="notification_dialog_message">Маңызды жаңартулар мен оқиғаларды алыңыз.\n\nҚолданба белгішесінде жаңа хабарламалар санын көру үшін \"Хабарлама белгілерін көрсету\" опциясын да қосыңыз.</string>
+    <string name="notification_dialog_enable">Қосу</string>
+    <string name="notification_dialog_later">Қазір емес</string>
 </resources>

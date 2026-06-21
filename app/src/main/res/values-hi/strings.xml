@@ -136,4 +136,10 @@
     <string name="network_error_title">कनेक्शन त्रुटि</string>
     <string name="network_error_message">सर्वर से कनेक्ट नहीं हो पाया। कृपया अपना इंटरनेट कनेक्शन जांचें और पुनः प्रयास करें।</string>
     <string name="try_again">पुनः प्रयास करें</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">सूचनाएं सक्षम करें 🔔</string>
+    <string name="notification_dialog_message">महत्वपूर्ण अपडेट और इवेंट प्राप्त करें।\n\nऐप आइकन पर नई सूचनाओं की संख्या देखने के लिए \"सूचना बैज दिखाएं\" भी सक्षम करें।</string>
+    <string name="notification_dialog_enable">सक्षम करें</string>
+    <string name="notification_dialog_later">अभी नहीं</string>
 </resources>

@@ -136,4 +136,10 @@
     <string name="network_error_title">Холболтын алдаа</string>
     <string name="network_error_message">Серверт холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.</string>
     <string name="try_again">Дахин оролдох</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Мэдэгдлийг идэвхжүүлэх 🔔</string>
+    <string name="notification_dialog_message">Чухал шинэчлэлт, үйл явдлуудыг хүлээн авах.\n\nАппын дүрс дээр шинэ мэдэгдлийн тоог харахын тулд \"Мэдэгдлийн тэмдгийг харуулах\"-ыг бас идэвхжүүлнэ үү.</string>
+    <string name="notification_dialog_enable">Идэвхжүүлэх</string>
+    <string name="notification_dialog_later">Одоо биш</string>
 </resources>

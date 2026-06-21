@@ -136,4 +136,10 @@
     <string name="network_error_title">Bağlantı Hatası</string>
     <string name="network_error_message">Sunucuya bağlanılamadı. İnternet bağlantınızı kontrol edin ve tekrar deneyin.</string>
     <string name="try_again">Tekrar Dene</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Bildirimleri etkinleştir 🔔</string>
+    <string name="notification_dialog_message">Önemli güncellemeleri ve etkinlikleri alın.\n\nUygulama simgesinde yeni bildirim sayısını görmek için \"Bildirim rozetlerini göster\" özelliğini de etkinleştirin.</string>
+    <string name="notification_dialog_enable">Etkinleştir</string>
+    <string name="notification_dialog_later">Şimdi değil</string>
 </resources>

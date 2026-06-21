@@ -136,4 +136,10 @@
     <string name="network_error_title">ข้อผิดพลาดในการเชื่อมต่อ</string>
     <string name="network_error_message">ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตและลองอีกครั้ง</string>
     <string name="try_again">ลองอีกครั้ง</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">เปิดใช้งานการแจ้งเตือน 🔔</string>
+    <string name="notification_dialog_message">รับการอัปเดตและกิจกรรมสำคัญ\n\nเปิดใช้งาน \"แสดงป้ายการแจ้งเตือน\" ด้วยเพื่อดูจำนวนการแจ้งเตือนใหม่บนไอคอนแอป</string>
+    <string name="notification_dialog_enable">เปิดใช้งาน</string>
+    <string name="notification_dialog_later">ไว้ทีหลัง</string>
 </resources>

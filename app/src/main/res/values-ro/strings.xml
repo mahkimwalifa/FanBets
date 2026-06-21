@@ -150,4 +150,10 @@
     <string name="network_error_title">Eroare de conexiune</string>
     <string name="network_error_message">Nu s-a putut conecta la server. Verificați conexiunea la internet și încercați din nou.</string>
     <string name="try_again">Încearcă din nou</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Activează notificările 🔔</string>
+    <string name="notification_dialog_message">Primește actualizări și evenimente importante.\n\nActivează și \"Afișează insignele de notificare\" pentru a vedea numărul de notificări noi pe pictograma aplicației.</string>
+    <string name="notification_dialog_enable">Activează</string>
+    <string name="notification_dialog_later">Nu acum</string>
 </resources>

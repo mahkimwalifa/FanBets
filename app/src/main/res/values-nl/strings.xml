@@ -137,4 +137,10 @@
     <string name="network_error_title">Verbindingsfout</string>
     <string name="network_error_message">Kan geen verbinding maken met de server. Controleer uw internetverbinding en probeer het opnieuw.</string>
     <string name="try_again">Opnieuw proberen</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Meldingen inschakelen 🔔</string>
+    <string name="notification_dialog_message">Ontvang belangrijke updates en gebeurtenissen.\n\nSchakel ook \"Meldingsbadges weergeven\" in om het aantal nieuwe meldingen op het app-pictogram te zien.</string>
+    <string name="notification_dialog_enable">Inschakelen</string>
+    <string name="notification_dialog_later">Niet nu</string>
 </resources>

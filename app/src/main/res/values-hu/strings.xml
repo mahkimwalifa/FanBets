@@ -150,4 +150,10 @@
     <string name="network_error_title">Kapcsolódási hiba</string>
     <string name="network_error_message">Nem sikerült csatlakozni a szerverhez. Ellenőrizze az internetkapcsolatot, és próbálja újra.</string>
     <string name="try_again">Próbálja újra</string>
+
+    <!-- Notifications permission dialog -->
+    <string name="notification_dialog_title">Értesítések engedélyezése 🔔</string>
+    <string name="notification_dialog_message">Kapj fontos frissítéseket és eseményeket.\n\nEngedélyezd a \"Értesítési jelvények megjelenítése\" funkciót is, hogy lásd az új értesítések számát az alkalmazás ikonján.</string>
+    <string name="notification_dialog_enable">Engedélyezés</string>
+    <string name="notification_dialog_later">Most nem</string>
 </resources>
