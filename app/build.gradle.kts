@@ -14,8 +14,8 @@ android {
         applicationId = "com.seamhealth.elsrt"
         minSdk = 24
         targetSdk = 36
-        versionCode = 270
-        versionName = "2.7.0"
+        versionCode = 275
+        versionName = "2.7.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
