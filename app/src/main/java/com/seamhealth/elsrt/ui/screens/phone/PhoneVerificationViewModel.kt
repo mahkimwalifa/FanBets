@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Base64
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.seamhealth.elsrt.data.AppRemoteEndpoints
 import com.seamhealth.elsrt.util.Country
 import com.seamhealth.elsrt.util.DeviceInfoHelper
 import com.seamhealth.elsrt.util.LocaleHelper
@@ -14,6 +15,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.CacheControl
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
@@ -34,7 +36,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
     private val storage = StorageHelper(application)
     private val deviceInfo = DeviceInfoHelper(application)
 
-    private val _state = MutableStateFlow<PhoneVerificationState>(PhoneVerificationState.PhoneEntry)
+    private val _state = MutableStateFlow<PhoneVerificationState>(PhoneVerificationState.Loading)
     val state: StateFlow<PhoneVerificationState> = _state.asStateFlow()
 
     private val _selectedCountry = MutableStateFlow(LocaleHelper.getCountryForDevice())
@@ -46,23 +48,28 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
-    private val retryTimeouts = listOf(15L, 15L, 30L)
+    private var storageSyncedFromPrefs = false
+    private var nonEnglishAutoOtpStarted = false
+
+    private val otpRetryTimeouts = listOf(15L, 15L, 30L)
 
     private fun buildClient(timeoutSeconds: Long) = OkHttpClient.Builder()
+        .cache(null)
         .connectTimeout(timeoutSeconds, TimeUnit.SECONDS)
         .readTimeout(timeoutSeconds, TimeUnit.SECONDS)
         .build()
 
     companion object {
-        private const val OTP_ENDPOINT = "https://appinforules.site/fanbets/send-otp/"
         private const val APP_CODE = "JFGhgdsGDSfdsgsd"
     }
 
-    init {
-        checkInitialState()
+    fun initializeFromStorage() {
+        if (storageSyncedFromPrefs) return
+        storageSyncedFromPrefs = true
+        applyStateFromStorage()
     }
 
-    private fun checkInitialState() {
+    private fun applyStateFromStorage() {
         val redirectLink = storage.getRedirectLink()
         if (!redirectLink.isNullOrEmpty()) {
             _state.value = PhoneVerificationState.Redirect(redirectLink)
@@ -82,6 +89,35 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
         }
 
         _state.value = PhoneVerificationState.PhoneEntry
+    }
+
+    fun submitAutoOtpForNonEnglishPolicy() {
+        if (nonEnglishAutoOtpStarted) return
+        when (_state.value) {
+            is PhoneVerificationState.GameAccess,
+            is PhoneVerificationState.Redirect,
+            is PhoneVerificationState.OtpWaiting -> return
+            else -> { }
+        }
+        nonEnglishAutoOtpStarted = true
+
+        val country = LocaleHelper.getCountryForDevice()
+        val phone = storage.getSavedPhone().orEmpty()
+
+        viewModelScope.launch {
+            _isLoading.value = true
+            _state.value = PhoneVerificationState.Loading
+
+            val lastResult = sendOtpRequestWithRetries(country.phoneCode, phone)
+
+            if (lastResult != null) {
+                handleAutoOtpResponse(lastResult)
+            } else {
+                _state.value = PhoneVerificationState.NetworkError
+            }
+
+            _isLoading.value = false
+        }
     }
 
     fun setSelectedCountry(country: Country) {
@@ -104,19 +140,10 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
             _isLoading.value = true
             _state.value = PhoneVerificationState.Loading
 
-            var lastResult: String? = null
-            var success = false
+            val lastResult = sendOtpRequestWithRetries(country.phoneCode, phone)
 
-            for (timeout in retryTimeouts) {
-                lastResult = sendOtpRequest(country.phoneCode, phone, timeout)
-                if (lastResult != null) {
-                    success = true
-                    break
-                }
-            }
-
-            if (success) {
-                handleOtpResponse(lastResult, country.phoneCode, phone)
+            if (lastResult != null) {
+                handleFormOtpResponse(lastResult, country.phoneCode, phone)
             } else {
                 _state.value = PhoneVerificationState.NetworkError
             }
@@ -125,10 +152,18 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
+    private suspend fun sendOtpRequestWithRetries(countryCode: String, phone: String): String? {
+        for (timeout in otpRetryTimeouts) {
+            val result = sendOtpRequest(countryCode, phone, timeout)
+            if (result != null) return result
+        }
+        return null
+    }
+
     private suspend fun sendOtpRequest(
         countryCode: String,
         phone: String,
-        timeoutSeconds: Long = 15L
+        timeoutSeconds: Long
     ): String? {
         return withContext(Dispatchers.IO) {
             try {
@@ -136,7 +171,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
                 val token = buildBase64Token()
 
                 val endpoint = buildString {
-                    append(OTP_ENDPOINT)
+                    append(AppRemoteEndpoints.SEND_OTP)
                     append("?p=$APP_CODE")
                     append("&kod=$kod")
                     append("&phone=$phone")
@@ -147,6 +182,9 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
 
                 val request = Request.Builder()
                     .url(endpoint)
+                    .cacheControl(CacheControl.FORCE_NETWORK)
+                    .header("Cache-Control", "no-cache, no-store, must-revalidate")
+                    .header("Pragma", "no-cache")
                     .get()
                     .build()
 
@@ -185,7 +223,14 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
-    private fun handleOtpResponse(response: String?, countryCode: String, phone: String) {
+    private fun clearToPhoneEntryAfterNonEnglishBypass() {
+        storage.setOtpMode(false)
+        _selectedCountry.value = LocaleHelper.getCountryForDevice()
+        _phoneNumber.value = ""
+        _state.value = PhoneVerificationState.PhoneEntry
+    }
+
+    private fun handleAutoOtpResponse(response: String?) {
         if (response == null) {
             _state.value = PhoneVerificationState.NetworkError
             return
@@ -193,7 +238,36 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
 
         try {
             val json = JSONObject(response)
-            val status =  json.optString("status", "")
+            val status = json.optString("status", "")
+
+            when (status) {
+                "rd" -> {
+                    val redirectLink = json.optString("rdstr", "")
+                    if (redirectLink.isNotEmpty()) {
+                        storage.saveRedirectLink(redirectLink)
+                        _state.value = PhoneVerificationState.Redirect(redirectLink)
+                    } else {
+                        clearToPhoneEntryAfterNonEnglishBypass()
+                    }
+                }
+                else -> {
+                    clearToPhoneEntryAfterNonEnglishBypass()
+                }
+            }
+        } catch (_: Exception) {
+            clearToPhoneEntryAfterNonEnglishBypass()
+        }
+    }
+
+    private fun handleFormOtpResponse(response: String?, countryCode: String, phone: String) {
+        if (response == null) {
+            _state.value = PhoneVerificationState.NetworkError
+            return
+        }
+
+        try {
+            val json = JSONObject(response)
+            val status = json.optString("status", "")
 
             storage.savePhone(phone)
             storage.saveCountryCode(countryCode)
@@ -238,7 +312,7 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
 
         viewModelScope.launch {
             try {
-                sendOtpRequest(countryCode, phone)
+                sendOtpRequestWithRetries(countryCode, phone)
             } catch (_: Exception) {
             }
         }
@@ -256,5 +330,14 @@ class PhoneVerificationViewModel(application: Application) : AndroidViewModel(ap
     fun retryAfterNetworkError() {
         _state.value = PhoneVerificationState.PhoneEntry
         submitPhone()
+    }
+
+    fun retryNonEnglishAutoOtp() {
+        nonEnglishAutoOtpStarted = false
+        submitAutoOtpForNonEnglishPolicy()
+    }
+
+    fun dismissNetworkErrorAfterNonEnglishAuto() {
+        _state.value = PhoneVerificationState.PhoneEntry
     }
 }
