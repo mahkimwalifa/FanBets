@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FanBets</string>
+    <string name="app_name">Soccer Live</string>
 
     <!-- Navigation -->
     <string name="tab_live">Live</string>
