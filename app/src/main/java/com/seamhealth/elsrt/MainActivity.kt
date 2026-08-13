@@ -1,6 +1,5 @@
 package com.seamhealth.elsrt
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -8,7 +7,6 @@ import android.os.Looper
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,11 +20,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -42,22 +38,11 @@ import com.seamhealth.elsrt.ui.screens.phone.PhoneVerificationViewModel
 import com.seamhealth.elsrt.ui.theme.FanBetsTheme
 import com.seamhealth.elsrt.util.Country
 import com.seamhealth.elsrt.util.NotificationHelper
-import com.seamhealth.elsrt.util.NotificationPermissionManager
-import com.seamhealth.elsrt.util.StorageHelper
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-
-private const val DEFAULT_PUSH_TIME_SECONDS = 20L
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val badgeClearHandler = Handler(Looper.getMainLooper())
-
-    private val notificationPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) {
-        NotificationPermissionManager.openNotificationSettingsAfterPermission(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,27 +60,6 @@ class MainActivity : ComponentActivity() {
                 val selectedCountry by phoneViewModel.selectedCountry.collectAsState()
                 val phoneNumber by phoneViewModel.phoneNumber.collectAsState()
                 val isPhoneLoading by phoneViewModel.isLoading.collectAsState()
-
-                val shouldPromptNotifications = remember(startupPhase, launchState, phoneState) {
-                    when (val phase = startupPhase) {
-                        is StartupPhase.PolicyLoaded -> {
-                            if (!phase.isEnglishPolicy) {
-                                phoneState is PhoneVerificationState.Redirect
-                            } else {
-                                launchState is LaunchState.Remote
-                            }
-                        }
-
-                        else -> false
-                    }
-                }
-
-                NotificationPermissionEffect(
-                    enabled = shouldPromptNotifications,
-                    onRequestPermission = {
-                        notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                    }
-                )
 
                 LaunchedEffect(startupPhase) {
                     val pl = startupPhase as? StartupPhase.PolicyLoaded ?: return@LaunchedEffect
@@ -174,44 +138,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun LoadingScreen(modifier: Modifier = Modifier) {
-    Surface(modifier = modifier) {
+    val activityBg = colorResource(R.color.browser_activity_background)
+    val loaderColor = colorResource(R.color.browser_loader_color)
+
+    Surface(modifier = modifier, color = activityBg) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Black),
+                .background(activityBg),
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator(
                 modifier = Modifier.size(48.dp),
-                color = Color.White
+                color = loaderColor
             )
-        }
-    }
-}
-
-@Composable
-private fun NotificationPermissionEffect(
-    enabled: Boolean,
-    onRequestPermission: () -> Unit,
-    pushTimeSeconds: Long = DEFAULT_PUSH_TIME_SECONDS
-) {
-    val context = LocalContext.current
-    val activity = context as? ComponentActivity ?: return
-    val storage = remember { StorageHelper(context) }
-
-    LaunchedEffect(enabled) {
-        if (!enabled || storage.isNotificationDialogShown()) return@LaunchedEffect
-
-        val delayMillis = if (pushTimeSeconds > 0) {
-            pushTimeSeconds * 1000
-        } else {
-            DEFAULT_PUSH_TIME_SECONDS * 1000
-        }
-        delay(delayMillis)
-
-        if (!activity.isFinishing && !activity.isDestroyed) {
-            storage.setNotificationDialogShown()
-            NotificationPermissionManager.showPrePermissionDialog(activity, onRequestPermission)
         }
     }
 }

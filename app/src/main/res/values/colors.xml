@@ -7,4 +7,13 @@
     <color name="black">#FF000000</color>
     <color name="light_gray">#FFF5F5F5</color>
     <color name="close_button_bg">#80000000</color>
+
+    <!--
+      Browser / промежуточный лоадер.
+      Меняйте на @color/black или @color/white (или свой hex).
+      Фон иконки лаунчера: ic_launcher_background (values/ic_launcher_background.xml).
+    -->
+    <color name="browser_activity_background">@color/black</color>
+    <color name="browser_loader_color">@color/white</color>
+    <color name="browser_webview_background">@color/black</color>
 </resources>

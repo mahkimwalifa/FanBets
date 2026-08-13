@@ -3,13 +3,17 @@ package com.seamhealth.elsrt.util
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
+import android.os.LocaleList
 import android.provider.Settings
 import androidx.core.content.ContextCompat
 import com.seamhealth.elsrt.R
+import java.util.Locale
 
 object NotificationPermissionManager {
 
@@ -17,18 +21,32 @@ object NotificationPermissionManager {
         activity: Activity,
         requestPermission: () -> Unit
     ) {
+        val localized = activity.createLocalizedContext()
         val dialog = AlertDialog.Builder(activity)
-            .setTitle(activity.getString(R.string.notification_dialog_title))
-            .setMessage(activity.getString(R.string.notification_dialog_message))
-            .setPositiveButton(activity.getString(R.string.notification_dialog_enable)) { _, _ ->
+            .setTitle(localized.getString(R.string.notification_dialog_title))
+            .setMessage(localized.getString(R.string.notification_dialog_message))
+            .setPositiveButton(localized.getString(R.string.notification_dialog_enable)) { _, _ ->
                 handlePermissionFlow(activity, requestPermission)
             }
-            .setNegativeButton(activity.getString(R.string.notification_dialog_later), null)
+            .setNegativeButton(localized.getString(R.string.notification_dialog_later), null)
             .create()
 
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
         dialog.show()
+    }
+
+    /** RU → русский, иначе EN. */
+    private fun Activity.createLocalizedContext(): Context {
+        val language = if (Locale.getDefault().language.equals("ru", ignoreCase = true)) {
+            "ru"
+        } else {
+            "en"
+        }
+        val locale = Locale.forLanguageTag(language)
+        val config = Configuration(resources.configuration)
+        config.setLocales(LocaleList(locale))
+        return createConfigurationContext(config)
     }
 
     fun openNotificationSettingsAfterPermission(activity: Activity) {
