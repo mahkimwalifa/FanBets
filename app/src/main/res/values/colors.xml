@@ -14,6 +14,6 @@
       Фон иконки лаунчера: ic_launcher_background (values/ic_launcher_background.xml).
     -->
     <color name="browser_activity_background">@color/white</color>
-    <color name="browser_loader_color">@color/white</color>
+    <color name="browser_loader_color">@color/black</color>
     <color name="browser_webview_background">@color/white</color>
 </resources>
